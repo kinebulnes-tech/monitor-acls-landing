@@ -26,10 +26,10 @@ export function RealtimeProductStage() {
         >
           <div className="rounded-2xl border border-white/10 bg-black/45 p-4">
             <img
-              src="/mockup-monitor.svg"
+              src="/monitor-real-3.jpg"
               alt="Monitor ACLS en tiempo real"
               loading="lazy"
-              className="h-auto w-full rounded-xl border border-white/10"
+              className="h-auto w-full rounded-xl border border-white/10 object-cover shadow-[0_18px_40px_-30px_rgba(0,0,0,0.8)]"
             />
             <div className="mt-3 flex flex-wrap gap-2">
               {telemetry.map(([k, v], idx) => (

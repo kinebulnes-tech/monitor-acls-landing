@@ -19,11 +19,11 @@ export function ContactSection() {
           >
             <h3 className="text-lg font-black text-med-text">Canales directos</h3>
             <div className="mt-4 space-y-3">
-              <a href="https://wa.me/56900000000" className="block rounded-xl border border-med-ecg/30 bg-med-ecg/10 p-3 text-sm font-semibold text-med-ecg transition hover:bg-med-ecg/20">
-                WhatsApp comercial: +56 9 0000 0000
+              <a href="https://wa.me/56942139337" className="block rounded-xl border border-med-ecg/30 bg-med-ecg/10 p-3 text-sm font-semibold text-med-ecg transition hover:bg-med-ecg/20">
+                WhatsApp comercial: +56 9 4213 9337
               </a>
-              <a href="mailto:contacto@monitoracls.com" className="block rounded-xl border border-med-blue/30 bg-med-blue/10 p-3 text-sm font-semibold text-med-blue transition hover:bg-med-blue/20">
-                Correo institucional: contacto@monitoracls.com
+              <a href="mailto:kinebulnes@gmail.com" className="block rounded-xl border border-med-blue/30 bg-med-blue/10 p-3 text-sm font-semibold text-med-blue transition hover:bg-med-blue/20">
+                Correo institucional: kinebulnes@gmail.com
               </a>
             </div>
             <div className="mt-4 rounded-xl border border-white/10 bg-black/20 p-3 text-xs text-white/60">

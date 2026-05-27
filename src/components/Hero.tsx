@@ -84,10 +84,10 @@ export function Hero() {
             Realtime
           </div>
           <img
-            src="/hero-monitor.svg"
+            src="/monitor-real-1.jpg"
             alt="Vista clínica de Monitor ACLS"
             loading="eager"
-            className="h-auto w-full rounded-2xl border border-white/10 bg-black/40"
+            className="h-auto w-full rounded-2xl border border-white/10 bg-black/40 object-cover shadow-[0_20px_60px_-35px_rgba(34,211,238,0.45)]"
           />
           <div className="mt-3 grid grid-cols-3 gap-2">
             {[

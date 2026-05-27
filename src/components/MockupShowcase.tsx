@@ -2,9 +2,9 @@ import { motion } from 'framer-motion'
 import { SectionTitle } from './SectionTitle'
 
 const cards = [
-  { src: '/mockup-monitor.svg', title: 'Monitor ACLS', description: 'ECG, capnografía, signos vitales y eventos críticos en tiempo real.' },
-  { src: '/mockup-instructor.svg', title: 'Dashboard Instructor', description: 'Control clínico, intervenciones, ritmo y decisiones durante el caso.' },
-  { src: '/mockup-student.svg', title: 'Vista Alumno', description: 'Interacción guiada, propuestas y seguimiento de caso bajo supervisión.' },
+  { src: '/monitor-real-2.jpg', title: 'Monitoreo estable', description: 'ECG, capnografía y signos vitales en operación continua de caso.' },
+  { src: '/monitor-real-4.jpg', title: 'Escenario crítico VT', description: 'Parámetros críticos y soporte docente en un caso taquicárdico inestable.' },
+  { src: '/monitor-real-3.jpg', title: 'Escenario VF desfibrilable', description: 'Alarma de paro y flujo de desfibrilación con checklist pre-shock.' },
 ]
 
 export function MockupShowcase() {
@@ -29,7 +29,7 @@ export function MockupShowcase() {
               src={card.src}
               alt={card.title}
               loading="lazy"
-              className="h-auto w-full rounded-xl border border-white/10 bg-black/40"
+              className="h-auto w-full rounded-xl border border-white/10 bg-black/40 object-cover"
             />
             <h3 className="mt-3 text-lg font-black text-med-text">{card.title}</h3>
             <p className="mt-1 text-sm text-med-muted">{card.description}</p>
