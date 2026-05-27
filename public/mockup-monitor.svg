@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" fill="none">
+  <rect width="900" height="560" rx="18" fill="#080F1A"/>
+  <rect x="24" y="24" width="852" height="512" rx="14" fill="#0D1727" stroke="#223A57"/>
+  <path d="M54 290H200L228 222L260 342L292 258L320 290H430L456 178L490 390L536 290H848" stroke="#2CFF88" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="56" y="86" fill="#8CB8E8" font-size="22" font-family="Arial, sans-serif" font-weight="700">Monitor Clínico</text>
+</svg>

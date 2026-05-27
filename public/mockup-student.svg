@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" fill="none">
+  <rect width="900" height="560" rx="18" fill="#070E17"/>
+  <rect x="24" y="24" width="852" height="512" rx="14" fill="#0B1524" stroke="#253A58"/>
+  <rect x="56" y="70" width="610" height="314" rx="12" fill="#050A12" stroke="#24445F"/>
+  <path d="M82 230H170L194 182L222 278L248 206L274 230H378L402 156L438 328L472 230H636" stroke="#2CFF88" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="686" y="70" width="160" height="314" rx="12" fill="#121F33"/>
+  <rect x="56" y="404" width="790" height="100" rx="12" fill="#0F1B2D"/>
+  <text x="58" y="106" fill="#9CD2FF" font-size="22" font-family="Arial, sans-serif" font-weight="700">Vista Alumno</text>
+  <text x="60" y="456" fill="#6CB4FF" font-size="17" font-family="Arial, sans-serif" font-weight="700">Seguimiento y propuestas supervisadas</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" fill="none">
+  <rect width="900" height="560" rx="18" fill="#070F1A"/>
+  <rect x="24" y="24" width="852" height="512" rx="14" fill="#0E182A" stroke="#254264"/>
+  <rect x="56" y="70" width="380" height="160" rx="10" fill="#13233A"/>
+  <rect x="456" y="70" width="390" height="160" rx="10" fill="#13233A"/>
+  <rect x="56" y="250" width="790" height="118" rx="10" fill="#13233A"/>
+  <rect x="56" y="386" width="180" height="118" rx="10" fill="#1A2A42"/>
+  <rect x="252" y="386" width="180" height="118" rx="10" fill="#1A2A42"/>
+  <rect x="448" y="386" width="180" height="118" rx="10" fill="#1A2A42"/>
+  <rect x="644" y="386" width="202" height="118" rx="10" fill="#1A2A42"/>
+  <text x="58" y="106" fill="#9BD0FF" font-size="22" font-family="Arial, sans-serif" font-weight="700">Panel Instructor</text>
+  <text x="58" y="312" fill="#2CFF88" font-size="18" font-family="Arial, sans-serif" font-weight="700">Control de caso en tiempo real</text>
+</svg>

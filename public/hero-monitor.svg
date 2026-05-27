@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" fill="none">
+  <rect width="1200" height="760" rx="24" fill="#08101C"/>
+  <rect x="32" y="32" width="1136" height="696" rx="18" fill="#0C1728" stroke="#2A3C57"/>
+  <rect x="62" y="72" width="790" height="420" rx="14" fill="#04080E" stroke="#26486B"/>
+  <path d="M88 282H220L244 218L278 368L312 246L340 282H528L562 170L600 430L644 282H824" stroke="#2CFF88" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="878" y="72" width="264" height="420" rx="14" fill="#091321" stroke="#254262"/>
+  <rect x="902" y="102" width="216" height="56" rx="8" fill="#13233A"/>
+  <rect x="902" y="176" width="216" height="56" rx="8" fill="#13233A"/>
+  <rect x="902" y="250" width="216" height="56" rx="8" fill="#13233A"/>
+  <rect x="902" y="324" width="216" height="56" rx="8" fill="#13233A"/>
+  <rect x="902" y="398" width="216" height="70" rx="8" fill="#18263A"/>
+  <rect x="62" y="520" width="1080" height="170" rx="14" fill="#070D16" stroke="#21344D"/>
+  <rect x="90" y="552" width="180" height="106" rx="8" fill="#101E31"/>
+  <rect x="294" y="552" width="180" height="106" rx="8" fill="#101E31"/>
+  <rect x="498" y="552" width="180" height="106" rx="8" fill="#101E31"/>
+  <rect x="702" y="552" width="180" height="106" rx="8" fill="#101E31"/>
+  <rect x="906" y="552" width="208" height="106" rx="8" fill="#101E31"/>
+  <text x="94" y="122" fill="#8CB8E8" font-size="24" font-family="Arial, sans-serif" font-weight="700">MONITOR ACLS</text>
+  <text x="914" y="136" fill="#E5F1FF" font-size="20" font-family="Arial, sans-serif" font-weight="700">Modo Instructor</text>
+  <text x="915" y="438" fill="#2CFF88" font-size="20" font-family="Arial, sans-serif" font-weight="700">LISTO PARA DESCARGA</text>
+  <text x="95" y="608" fill="#2CFF88" font-size="18" font-family="Arial, sans-serif" font-weight="700">Ritmo Sinusal</text>
+  <text x="505" y="608" fill="#5FAFFF" font-size="18" font-family="Arial, sans-serif" font-weight="700">Desfibrilación</text>
+  <text x="908" y="608" fill="#FF6374" font-size="18" font-family="Arial, sans-serif" font-weight="700">Debrief PDF</text>
+</svg>
