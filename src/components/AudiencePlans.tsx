@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { SectionTitle } from './SectionTitle'
-import { getCheckoutHref, trackCommercialEvent } from '../lib/commercial'
-
-type Billing = 'monthly' | 'annual'
+import { getCheckoutHref, trackCommercialEvent, type BillingCycle } from '../lib/commercial'
 
 const individualPoints = [
   'Simulación ACLS y BLS completa',
@@ -33,8 +31,7 @@ function Check() {
 }
 
 export function AudiencePlans() {
-  const [billing, setBilling] = useState<Billing>('monthly')
-  const individualCheckout = getCheckoutHref('individual')
+  const [billing, setBilling] = useState<BillingCycle>('monthly')
 
   return (
     <section className="border-y border-white/10 bg-med-panel/52" id="planes">
@@ -118,11 +115,11 @@ export function AudiencePlans() {
 
             <div className="mt-5 space-y-2">
               <a
-                href={billing === 'monthly' ? individualCheckout : '#contacto'}
-                onClick={() => trackCommercialEvent('click_buy_plan', { source: 'plans', plan: 'individual' })}
+                href={getCheckoutHref('individual', billing)}
+                onClick={() => trackCommercialEvent('click_buy_plan', { source: 'plans', plan: 'individual', billingCycle: billing })}
                 className="block rounded-xl border border-med-ecg/40 bg-med-ecg/15 px-4 py-3 text-center text-sm font-extrabold uppercase tracking-wider text-med-ecg transition hover:bg-med-ecg/25"
               >
-                {billing === 'monthly' ? 'Comprar licencia' : 'Comprar plan anual'}
+                {billing === 'monthly' ? 'Comprar licencia mensual' : 'Comprar licencia anual'}
               </a>
               <a
                 href="#contacto"
@@ -184,11 +181,11 @@ export function AudiencePlans() {
 
             <div className="mt-5 space-y-2">
               <a
-                href={getCheckoutHref('institutional')}
-                onClick={() => trackCommercialEvent('click_buy_plan', { source: 'plans', plan: 'institutional' })}
+                href={getCheckoutHref('institutional', billing)}
+                onClick={() => trackCommercialEvent('click_buy_plan', { source: 'plans', plan: 'institutional', billingCycle: billing })}
                 className="block rounded-xl border border-med-blue/40 bg-med-blue/20 px-4 py-3 text-center text-sm font-extrabold uppercase tracking-wider text-med-cyan transition hover:bg-med-blue/30"
               >
-                {billing === 'monthly' ? 'Comprar plan institucional' : 'Comprar plan anual institucional'}
+                {billing === 'monthly' ? 'Comprar plan institucional mensual' : 'Comprar plan institucional anual'}
               </a>
               <a
                 href="#contacto"

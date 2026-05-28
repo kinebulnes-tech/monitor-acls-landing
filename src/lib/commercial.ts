@@ -5,9 +5,12 @@ export type CommercialEventName =
   | 'click_buy_plan'
   | 'click_request_quote'
 
+export type BillingCycle = 'monthly' | 'annual'
+
 interface CommercialEventDetail {
   source?: string
   plan?: string
+  billingCycle?: BillingCycle
   status?: string
 }
 
@@ -22,10 +25,20 @@ const fallbackContactHref = '#contacto'
 
 export const simulatorUrl = import.meta.env.VITE_SIMULATOR_URL?.trim() || ''
 
+// TODO: Set these env vars to activate checkout (Stripe/MercadoPago/Webpay links)
+// VITE_CHECKOUT_INDIVIDUAL_URL       — Individual mensual
+// VITE_CHECKOUT_INDIVIDUAL_ANNUAL_URL — Individual anual
+// VITE_CHECKOUT_INSTITUTIONAL_URL    — Institucional mensual
+// VITE_CHECKOUT_INSTITUTIONAL_ANNUAL_URL — Institucional anual
 export const checkoutUrls = {
-  individual: import.meta.env.VITE_CHECKOUT_INDIVIDUAL_URL?.trim() || '',
-  institutional: import.meta.env.VITE_CHECKOUT_INSTITUTIONAL_URL?.trim() || '',
-  enterprise: import.meta.env.VITE_CHECKOUT_ENTERPRISE_URL?.trim() || '',
+  individual: {
+    monthly: import.meta.env.VITE_CHECKOUT_INDIVIDUAL_URL?.trim() || '',
+    annual: import.meta.env.VITE_CHECKOUT_INDIVIDUAL_ANNUAL_URL?.trim() || '',
+  },
+  institutional: {
+    monthly: import.meta.env.VITE_CHECKOUT_INSTITUTIONAL_URL?.trim() || '',
+    annual: import.meta.env.VITE_CHECKOUT_INSTITUTIONAL_ANNUAL_URL?.trim() || '',
+  },
 }
 
 export function hasSimulatorUrl() {
@@ -36,8 +49,15 @@ export function getSimulatorHref() {
   return hasSimulatorUrl() ? simulatorUrl : fallbackSimulatorHref
 }
 
-export function getCheckoutHref(plan: keyof typeof checkoutUrls) {
-  return checkoutUrls[plan] || fallbackContactHref
+export function getCheckoutHref(plan: keyof typeof checkoutUrls, billing: BillingCycle = 'monthly') {
+  return checkoutUrls[plan][billing] || fallbackContactHref
+}
+
+// TODO: Wire to Stripe/MercadoPago/Webpay — replace body with provider SDK call
+export function handlePlanCheckout(plan: keyof typeof checkoutUrls, billing: BillingCycle) {
+  trackCommercialEvent('click_buy_plan', { source: 'plans', plan, billingCycle: billing })
+  const href = getCheckoutHref(plan, billing)
+  window.location.href = href
 }
 
 export function isExternalHref(href: string) {
