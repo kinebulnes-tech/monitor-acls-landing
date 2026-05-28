@@ -1,5 +1,9 @@
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
+declare const process: {
+  env: Record<string, string | undefined>
+}
+
 type ContactPayload = {
   name?: unknown
   institution?: unknown
@@ -15,11 +19,11 @@ function clean(value: unknown) {
 
 function escapeHtml(value: string) {
   return value
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#039;')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
 }
 
 function json(res: any, status: number, payload: Record<string, unknown>) {
