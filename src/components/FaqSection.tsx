@@ -67,6 +67,9 @@ function FaqItem({ item, index, isOpen, onToggle }: {
   isOpen: boolean
   onToggle: () => void
 }) {
+  const answerId = `faq-answer-${index}`
+  const buttonId = `faq-btn-${index}`
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 14 }}
@@ -76,8 +79,10 @@ function FaqItem({ item, index, isOpen, onToggle }: {
       className="border-b border-white/8 last:border-b-0"
     >
       <button
+        id={buttonId}
         type="button"
         aria-expanded={isOpen}
+        aria-controls={answerId}
         onClick={onToggle}
         className="flex w-full items-center justify-between gap-4 py-5 text-left transition-colors hover:text-med-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-med-blue/50 focus-visible:ring-offset-2 focus-visible:ring-offset-med-panel"
       >
@@ -96,7 +101,10 @@ function FaqItem({ item, index, isOpen, onToggle }: {
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
+            id={answerId}
             key="answer"
+            role="region"
+            aria-labelledby={buttonId}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
