@@ -10,7 +10,8 @@ const telemetry = [
 
 export function RealtimeProductStage() {
   return (
-    <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
+    <section className="border-y border-white/10" id="como-funciona">
+      <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
       <SectionTitle
         eyebrow="Producto en vivo"
         title="Una sesión clínica que se percibe operativa, no decorativa"
@@ -86,6 +87,7 @@ export function RealtimeProductStage() {
             </motion.article>
           ))}
         </div>
+      </div>
       </div>
     </section>
   )

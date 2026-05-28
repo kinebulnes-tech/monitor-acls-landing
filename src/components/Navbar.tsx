@@ -7,7 +7,7 @@ export function Navbar() {
   const simulatorIsExternal = isExternalHref(simulatorHref)
   const links = [
     { href: '#como-funciona', label: 'Cómo funciona' },
-    { href: '#casos', label: 'Casos' },
+    { href: '#micro-caso', label: 'Simulación' },
     { href: '#arquitectura', label: 'Arquitectura' },
     { href: '#planes', label: 'Planes' },
     { href: '#contacto', label: 'Contacto' },

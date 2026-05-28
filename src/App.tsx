@@ -4,18 +4,14 @@ import { Hero } from './components/Hero'
 import { RealtimeProductStage } from './components/RealtimeProductStage'
 import { InteractiveClinicalCase } from './components/InteractiveClinicalCase'
 import { HowItWorks } from './components/HowItWorks'
-import { ClinicalUseCases } from './components/ClinicalUseCases'
 import { ProblemSolution } from './components/ProblemSolution'
-import { InstitutionalBenefits } from './components/InstitutionalBenefits'
-import { MultiUserArchitecture } from './components/MultiUserArchitecture'
-import { FeaturesGrid } from './components/FeaturesGrid'
+import { ClinicalCapabilities } from './components/ClinicalCapabilities'
 import { AudiencePlans } from './components/AudiencePlans'
-import { VideoDemoSection } from './components/VideoDemoSection'
 import { TrustSection } from './components/TrustSection'
 import { TestimonialsFaq } from './components/TestimonialsFaq'
 import { ContactSection } from './components/ContactSection'
 import { Footer } from './components/Footer'
-import { hasSimulatorUrl, trackCommercialEvent } from './lib/commercial'
+import { trackCommercialEvent } from './lib/commercial'
 
 function App() {
   return (
@@ -23,31 +19,27 @@ function App() {
     <div className="min-h-screen bg-med-bg text-med-text">
       <Navbar />
       <main>
+        {/* 1 — Problema antes que solución */}
         <Hero />
-        {!hasSimulatorUrl() ? (
-          <section className="border-b border-white/10 bg-med-bg" id="simulador-proximamente">
-            <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-5 py-5 md:flex-row md:items-center md:justify-between md:px-8">
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-med-cyan">Acceso institucional</p>
-                <h2 className="mt-1 text-lg font-extrabold text-med-text">Acceso directo disponible con tu licencia</h2>
-              </div>
-              <p className="max-w-2xl text-sm leading-relaxed text-med-muted">
-                El simulador se habilita tras la configuración institucional. Agenda una demo para ver el flujo completo con tu equipo.
-              </p>
-            </div>
-          </section>
-        ) : null}
-        <RealtimeProductStage />
-        <InteractiveClinicalCase />
         <ProblemSolution />
-        <InstitutionalBenefits />
-        <TrustSection />
+
+        {/* 2 — Solución y producto */}
+        <RealtimeProductStage />
         <HowItWorks />
-        <ClinicalUseCases />
-        <MultiUserArchitecture />
-        <FeaturesGrid />
+
+        {/* 3 — Experiencia real */}
+        <InteractiveClinicalCase />
+
+        {/* 4 — Evidencia y profundidad */}
+        <ClinicalCapabilities />
+
+        {/* 5 — Confianza antes de precio */}
+        <TrustSection />
+
+        {/* 6 — Decisión */}
         <AudiencePlans />
-        <VideoDemoSection />
+
+        {/* 7 — Cierre */}
         <TestimonialsFaq />
         <ContactSection />
       </main>
