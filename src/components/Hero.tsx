@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion'
+import { getSimulatorHref, isExternalHref, trackCommercialEvent } from '../lib/commercial'
 
 export function Hero() {
+  const simulatorHref = getSimulatorHref()
+  const simulatorIsExternal = isExternalHref(simulatorHref)
   const trustIndicators = [
     'Implementación para cohortes, sedes y equipos docentes',
     'Flujo instructor/alumno con operación en tiempo real',
@@ -41,9 +44,19 @@ export function Hero() {
           <div className="flex flex-wrap items-center gap-3">
             <a
               href="#contacto"
+              onClick={() => trackCommercialEvent('click_demo', { source: 'hero' })}
               className="group rounded-xl border border-med-ecg/40 bg-med-ecg/20 px-5 py-3 text-sm font-extrabold uppercase tracking-wider text-med-ecg shadow-glow transition duration-300 hover:-translate-y-0.5 hover:bg-med-ecg/30"
             >
               Agendar demo institucional
+            </a>
+            <a
+              href={simulatorHref}
+              target={simulatorIsExternal ? '_blank' : undefined}
+              rel={simulatorIsExternal ? 'noreferrer' : undefined}
+              onClick={() => trackCommercialEvent('click_simulator', { source: 'hero' })}
+              className="rounded-xl border border-med-blue/40 bg-med-blue/10 px-5 py-3 text-sm font-extrabold uppercase tracking-wider text-med-cyan transition duration-300 hover:-translate-y-0.5 hover:bg-med-blue/20"
+            >
+              Acceder al simulador
             </a>
             <a
               href="#demo"

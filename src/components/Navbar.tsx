@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import { getSimulatorHref, isExternalHref, trackCommercialEvent } from '../lib/commercial'
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const simulatorHref = getSimulatorHref()
+  const simulatorIsExternal = isExternalHref(simulatorHref)
   const links = [
     { href: '#como-funciona', label: 'Cómo funciona' },
     { href: '#casos', label: 'Casos' },
@@ -28,7 +31,17 @@ export function Navbar() {
             </a>
           ))}
           <a
+            href={simulatorHref}
+            target={simulatorIsExternal ? '_blank' : undefined}
+            rel={simulatorIsExternal ? 'noreferrer' : undefined}
+            onClick={() => trackCommercialEvent('click_simulator', { source: 'navbar' })}
+            className="rounded-lg border border-white/15 bg-white/[0.04] px-3 py-2 text-[11px] font-extrabold text-med-soft transition hover:border-med-cyan/35 hover:text-white"
+          >
+            Acceder al simulador
+          </a>
+          <a
             href="#contacto"
+            onClick={() => trackCommercialEvent('click_demo', { source: 'navbar' })}
             className="rounded-lg border border-med-blue/35 bg-med-blue/10 px-3 py-2 text-[11px] font-extrabold text-med-cyan transition hover:bg-med-blue/20"
           >
             Solicitar demo
@@ -63,6 +76,18 @@ export function Navbar() {
               className="rounded-lg border border-med-blue/35 bg-med-blue/10 px-3 py-2 text-xs font-extrabold uppercase tracking-wider text-med-cyan"
             >
               Solicitar demo
+            </a>
+            <a
+              href={simulatorHref}
+              target={simulatorIsExternal ? '_blank' : undefined}
+              rel={simulatorIsExternal ? 'noreferrer' : undefined}
+              onClick={() => {
+                setOpen(false)
+                trackCommercialEvent('click_simulator', { source: 'mobile_nav' })
+              }}
+              className="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-xs font-extrabold uppercase tracking-wider text-med-soft"
+            >
+              Acceder al simulador
             </a>
           </nav>
         </div>

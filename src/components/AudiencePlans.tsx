@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { SectionTitle } from './SectionTitle'
+import { getCheckoutHref, trackCommercialEvent } from '../lib/commercial'
 
 const audience = [
   'Universidades',
@@ -11,24 +12,30 @@ const audience = [
 
 const plans = [
   {
-    name: 'Demo',
+    key: 'individual',
+    name: 'Plan Individual',
     description: 'Evaluación ejecutiva y técnica para validar ajuste institucional.',
-    points: ['Revisión de caso de uso', 'Demo guiada', 'Recomendación de implementación'],
-    cta: 'Agendar evaluación',
+    points: ['Revisión de caso de uso', 'Acceso preparado para licencia futura', 'Soporte de onboarding inicial'],
+    cta: 'Comprar licencia',
+    secondary: 'Elegir plan',
   },
   {
-    name: 'Licencia Instructor',
-    description: 'Operación individual para entrenamiento continuo y sesiones recurrentes.',
-    points: ['Uso docente continuo', 'Acceso a escenarios', 'Soporte de onboarding inicial'],
-    cta: 'Consultar modalidad',
-  },
-  {
-    name: 'Licencia Institucional',
+    key: 'institutional',
+    name: 'Institucional',
     description: 'Implementación multiusuario para programas formales de entrenamiento.',
-    points: ['Operación por equipo', 'Implementación por cohorte', 'Acompañamiento comercial/técnico'],
-    cta: 'Diseñar propuesta',
+    points: ['Operación por equipo', 'Implementación por cohorte', 'Demo guiada para coordinación'],
+    cta: 'Solicitar demo',
+    secondary: 'Hablar con ventas',
   },
-]
+  {
+    key: 'enterprise',
+    name: 'Enterprise',
+    description: 'Diseño comercial para sedes, alto volumen y acompañamiento técnico.',
+    points: ['Cotización consultiva', 'Acompañamiento comercial/técnico', 'Preparado para flujo de compra futuro'],
+    cta: 'Solicitar cotización',
+    secondary: 'Hablar con ventas',
+  },
+] as const
 
 export function AudiencePlans() {
   return (
@@ -57,7 +64,11 @@ export function AudiencePlans() {
           </motion.div>
 
           <div className="grid gap-3 md:grid-cols-3">
-            {plans.map((plan, idx) => (
+            {plans.map((plan, idx) => {
+              const checkoutHref = getCheckoutHref(plan.key)
+              const isBuyPlan = plan.key === 'individual'
+              const eventName = plan.key === 'enterprise' ? 'click_request_quote' : isBuyPlan ? 'click_buy_plan' : 'click_demo'
+              return (
               <motion.article
                 key={plan.name}
                 initial={{ opacity: 0, y: 16 }}
@@ -65,7 +76,7 @@ export function AudiencePlans() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className={`rounded-2xl border p-5 transition duration-300 hover:-translate-y-0.5 ${
-                  plan.name === 'Licencia Institucional'
+                  plan.key === 'institutional'
                     ? 'border-med-blue/35 bg-med-blue/10 shadow-blue'
                     : 'border-white/10 bg-med-card/75'
                 }`}
@@ -80,13 +91,21 @@ export function AudiencePlans() {
                   ))}
                 </ul>
                 <a
-                  href="#contacto"
+                  href={checkoutHref}
+                  onClick={() => trackCommercialEvent(eventName, { source: 'plans', plan: plan.key })}
                   className="mt-4 inline-flex rounded-lg border border-med-blue/35 bg-med-blue/10 px-3 py-2 text-xs font-extrabold uppercase tracking-wider text-med-cyan transition hover:bg-med-blue/20"
                 >
                   {plan.cta}
                 </a>
+                <a
+                  href="#contacto"
+                  onClick={() => trackCommercialEvent(plan.key === 'enterprise' ? 'click_request_quote' : 'click_demo', { source: 'plans_secondary', plan: plan.key })}
+                  className="mt-2 inline-flex text-xs font-bold uppercase tracking-wider text-med-muted transition hover:text-white"
+                >
+                  {plan.secondary}
+                </a>
               </motion.article>
-            ))}
+            )})}
           </div>
         </div>
       </div>
