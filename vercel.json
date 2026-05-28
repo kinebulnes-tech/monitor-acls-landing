@@ -5,12 +5,6 @@
       "has": [{ "type": "host", "value": "www.monitoracls.com" }],
       "destination": "https://monitoracls.com/:path*",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "app.monitoracls.com" }],
-      "destination": "https://monitoracls.com/#contacto",
-      "permanent": false
     }
   ],
   "rewrites": [
