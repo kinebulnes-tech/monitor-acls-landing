@@ -3,16 +3,16 @@ import { SectionTitle } from './SectionTitle'
 
 const steps = [
   {
-    title: '1. Configuración de sesión',
-    detail: 'El instructor selecciona caso, ritmo inicial y objetivos docentes.',
+    title: '1. El instructor prepara el caso',
+    detail: 'Selecciona el escenario, define el ritmo inicial y activa la sesión. En menos de dos minutos.',
   },
   {
-    title: '2. Ejecución del caso',
-    detail: 'Equipo entrena en modo realtime con decisiones clínicas y operacionales.',
+    title: '2. El equipo responde en tiempo real',
+    detail: 'El equipo toma decisiones clínicas mientras el instructor puede intervenir o escalar el escenario.',
   },
   {
-    title: '3. Cierre y debrief',
-    detail: 'Se consolida resumen clínico del equipo con feedback y reporte exportable.',
+    title: '3. La sesión cierra con evidencia',
+    detail: 'Todos reciben un resumen con lo que ocurrió, lo que se decidió y lo que mejorar.',
   },
 ]
 
@@ -22,8 +22,8 @@ export function HowItWorks() {
       <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <SectionTitle
           eyebrow="Cómo funciona"
-          title="Flujo operativo simple para instituciones"
-          subtitle="Diseñado para implementación rápida en programas de entrenamiento ACLS/BLS."
+          title="Una sesión completa en tres pasos"
+          subtitle="Desde que el instructor configura el caso hasta que el equipo recibe el resumen documentado."
         />
         <div className="grid gap-3 md:grid-cols-3">
           {steps.map((step, idx) => (

@@ -5,9 +5,9 @@ export function Hero() {
   const simulatorHref = getSimulatorHref()
   const simulatorIsExternal = isExternalHref(simulatorHref)
   const trustIndicators = [
-    'Implementación para cohortes, sedes y equipos docentes',
-    'Flujo instructor/alumno con operación en tiempo real',
-    'Debrief exportable para evidencia académica',
+    'Sesiones en equipo con roles instructor y participante',
+    'Casos clínicos controlados por el instructor en tiempo real',
+    'Cierre documentado con resumen exportable por sesión',
   ]
 
   return (
@@ -26,19 +26,18 @@ export function Hero() {
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-med-cyan/30 bg-med-blue/10 px-3.5 py-1.5 shadow-blue">
             <span className="h-2 w-2 rounded-full bg-med-ecg shadow-glow" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-med-cyan">Clinical Simulation SaaS</span>
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-med-cyan">Simulador clínico para equipos de salud</span>
           </div>
 
           <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.04] tracking-tight text-med-text md:text-5xl lg:text-6xl">
-            Simulación ACLS institucional,
+            Entrena equipos de reanimación.
             <span className="block bg-gradient-to-r from-med-ecg via-med-cyan to-med-blue bg-clip-text text-transparent">
-              trazable y en tiempo real.
+              Documenta cada sesión.
             </span>
           </h1>
 
           <p className="max-w-2xl text-base leading-8 text-med-soft/88 md:text-lg">
-            Monitor ACLS ayuda a universidades, OTEC, hospitales y centros de simulación a ejecutar casos clínicos,
-            coordinar equipos y documentar evidencia de entrenamiento sin depender de infraestructura compleja.
+            Universidades, OTEC y centros de simulación usan Monitor ACLS para ejecutar casos clínicos en equipo, con rol instructor y evidencia de sesión exportable. Sin hardware adicional.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -47,22 +46,20 @@ export function Hero() {
               onClick={() => trackCommercialEvent('click_demo', { source: 'hero' })}
               className="group rounded-xl border border-med-ecg/40 bg-med-ecg/20 px-5 py-3 text-sm font-extrabold uppercase tracking-wider text-med-ecg shadow-glow transition duration-300 hover:-translate-y-0.5 hover:bg-med-ecg/30"
             >
-              Agendar demo institucional
+              Ver cómo funciona
             </a>
             <a
-              href={simulatorHref}
-              target={simulatorIsExternal ? '_blank' : undefined}
-              rel={simulatorIsExternal ? 'noreferrer' : undefined}
-              onClick={() => trackCommercialEvent('click_simulator', { source: 'hero' })}
+              href="#contacto"
+              onClick={() => trackCommercialEvent('click_demo', { source: 'hero_access' })}
               className="rounded-xl border border-med-blue/40 bg-med-blue/10 px-5 py-3 text-sm font-extrabold uppercase tracking-wider text-med-cyan transition duration-300 hover:-translate-y-0.5 hover:bg-med-blue/20"
             >
-              Acceder al simulador
+              Solicitar acceso institucional
             </a>
             <a
               href="#demo"
               className="rounded-xl border border-med-blue/40 bg-med-blue/10 px-5 py-3 text-sm font-extrabold uppercase tracking-wider text-med-cyan transition duration-300 hover:-translate-y-0.5 hover:bg-med-blue/20"
             >
-              Ver flujo de simulación
+              Ver demo en 3 minutos
             </a>
           </div>
 

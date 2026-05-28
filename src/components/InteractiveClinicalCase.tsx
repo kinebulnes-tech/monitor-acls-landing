@@ -102,7 +102,7 @@ export function InteractiveClinicalCase() {
         <SectionTitle
           eyebrow="Micro caso interactivo"
           title="Toma una decisión ACLS y observa el impacto clínico"
-          subtitle="Una experiencia breve para mostrar cómo Monitor ACLS convierte acciones, timing y feedback en entrenamiento documentable."
+          subtitle="Toma la primera decisión. El simulador muestra el impacto clínico y genera el debrief."
         />
 
         <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
@@ -226,16 +226,14 @@ export function InteractiveClinicalCase() {
                 onClick={() => trackCommercialEvent('click_demo', { source: 'micro_case' })}
                 className="mt-5 inline-flex rounded-xl border border-med-blue/35 bg-med-blue/12 px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider text-med-cyan transition hover:bg-med-blue/20"
               >
-                Solicitar demo institucional
+                Solicitar acceso institucional
               </a>
               <a
-                href={simulatorHref}
-                target={simulatorIsExternal ? '_blank' : undefined}
-                rel={simulatorIsExternal ? 'noreferrer' : undefined}
-                onClick={() => trackCommercialEvent('click_simulator', { source: 'micro_case' })}
+                href="#demo"
+                onClick={() => trackCommercialEvent('click_demo_section', { source: 'micro_case' })}
                 className="ml-0 mt-2 inline-flex rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider text-med-soft transition hover:border-med-cyan/35 hover:text-white sm:ml-2"
               >
-                Acceder al simulador
+                Ver demo completo
               </a>
             </div>
           </motion.aside>

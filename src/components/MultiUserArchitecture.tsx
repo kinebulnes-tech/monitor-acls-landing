@@ -4,15 +4,15 @@ import { SectionTitle } from './SectionTitle'
 const layers = [
   {
     role: 'Instructor',
-    description: 'Configura caso, dirige la simulación y valida decisiones durante la sesión.',
+    description: 'Controla el caso: activa ritmos, escala la dificultad e interviene cuando el equipo lo necesita.',
   },
   {
-    role: 'Alumno',
-    description: 'Participa bajo supervisión, ejecuta flujo clínico y recibe feedback estructurado.',
+    role: 'Participante',
+    description: 'Ve el monitor clínico, toma decisiones y recibe feedback estructurado al cierre de la sesión.',
   },
   {
-    role: 'Coordinación académica',
-    description: 'Consolida resultados y evidencia de entrenamiento en informes por sesión.',
+    role: 'Coordinación',
+    description: 'Accede a los reportes de sesión para evidencia, seguimiento y evaluación del programa.',
   },
 ]
 
@@ -20,9 +20,9 @@ export function MultiUserArchitecture() {
   return (
     <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24" id="arquitectura">
       <SectionTitle
-        eyebrow="Arquitectura multiusuario"
-        title="Diseño operativo para entrenamiento en equipo"
-        subtitle="Modelo claro de roles clínicos y académicos dentro de la misma plataforma."
+        eyebrow="Roles y accesos"
+        title="Instructor, participante y coordinador. Cada uno ve lo que necesita ver."
+        subtitle="Una sesión, tres perspectivas distintas. El instructor dirige. El equipo responde. Coordinación registra."
       />
 
       <div className="enterprise-surface rounded-[1.75rem] p-4 md:p-6">

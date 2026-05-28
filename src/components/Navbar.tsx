@@ -19,9 +19,6 @@ export function Navbar() {
         <div className="flex items-center gap-2.5">
           <div className="h-2.5 w-2.5 rounded-full bg-med-ecg shadow-glow" />
           <p className="text-sm font-extrabold tracking-wide text-med-text md:text-base">Monitor ACLS</p>
-          <span className="hidden rounded-full border border-white/15 bg-white/[0.03] px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-med-muted md:inline-flex">
-            Enterprise
-          </span>
         </div>
 
         <nav className="hidden items-center gap-6 text-xs font-semibold uppercase tracking-wider text-med-muted md:flex">
@@ -37,14 +34,14 @@ export function Navbar() {
             onClick={() => trackCommercialEvent('click_simulator', { source: 'navbar' })}
             className="rounded-lg border border-white/15 bg-white/[0.04] px-3 py-2 text-[11px] font-extrabold text-med-soft transition hover:border-med-cyan/35 hover:text-white"
           >
-            Acceder al simulador
+            Ver demo
           </a>
           <a
             href="#contacto"
             onClick={() => trackCommercialEvent('click_demo', { source: 'navbar' })}
             className="rounded-lg border border-med-blue/35 bg-med-blue/10 px-3 py-2 text-[11px] font-extrabold text-med-cyan transition hover:bg-med-blue/20"
           >
-            Solicitar demo
+            Solicitar acceso
           </a>
         </nav>
 
@@ -75,7 +72,7 @@ export function Navbar() {
               onClick={() => setOpen(false)}
               className="rounded-lg border border-med-blue/35 bg-med-blue/10 px-3 py-2 text-xs font-extrabold uppercase tracking-wider text-med-cyan"
             >
-              Solicitar demo
+              Solicitar acceso
             </a>
             <a
               href={simulatorHref}
@@ -87,7 +84,7 @@ export function Navbar() {
               }}
               className="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-xs font-extrabold uppercase tracking-wider text-med-soft"
             >
-              Acceder al simulador
+              Ver demo
             </a>
           </nav>
         </div>

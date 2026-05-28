@@ -2,14 +2,14 @@ import { motion } from 'framer-motion'
 import { SectionTitle } from './SectionTitle'
 
 const features = [
-  ['Ritmos clínicos', 'Manejo de ritmos ACLS/BLS para entrenamiento de decisiones en contexto.'],
-  ['Terapias eléctricas', 'Desfibrilación y cardioversión simuladas en secuencia docente controlada.'],
-  ['Monitor operativo', 'ECG y vitales dinámicos con estética clínica de alto nivel.'],
-  ['Escenarios dirigidos', 'Casos reutilizables para práctica escalonada por complejidad.'],
-  ['Evaluación del equipo', 'Registro de acciones, tiempos críticos y desempeño grupal.'],
-  ['Debrief estructurado', 'Cierre pedagógico consistente por caso y por sesión.'],
-  ['Reporte exportable', 'Salida PDF para trazabilidad institucional y académica.'],
-  ['Licenciamiento institucional', 'Modelo operativo para programas formales de entrenamiento.'],
+  ['Ritmos ACLS/BLS', 'FV, AESP, asistolia, taquicardias. El instructor cambia el ritmo cuando decide.'],
+  ['Desfibrilación y cardioversión', 'Simuladas con secuencia correcta y feedback de timing.'],
+  ['Monitor clínico dinámico', 'ECG, ETCO₂ y signos vitales actualizados durante el caso.'],
+  ['Casos reutilizables', 'El mismo escenario puede repetirse con distintos grupos o configuraciones.'],
+  ['Registro de acciones', 'Qué intervención hizo el equipo, en qué momento y en qué orden.'],
+  ['Debrief estructurado', 'Cierre pedagógico que no depende de la memoria del instructor.'],
+  ['Reporte exportable', 'Resumen del caso disponible para el programa, el equipo o el expediente académico.'],
+  ['Licencia institucional', 'Operación para programas formales, cohortes y múltiples instructores.'],
 ]
 
 export function FeaturesGrid() {
@@ -17,8 +17,8 @@ export function FeaturesGrid() {
     <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24" id="funciones">
       <SectionTitle
         eyebrow="Funcionalidades"
-        title="Capacidades clínicas y operacionales"
-        subtitle="Diseñadas para equipos que necesitan continuidad docente y calidad de ejecución."
+        title="Lo que incluye cada sesión"
+        subtitle="Diseñado con criterio clínico, no solo con criterio de software."
       />
       <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
         {features.map(([title, description], idx) => (

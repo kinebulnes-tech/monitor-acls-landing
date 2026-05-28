@@ -11,8 +11,8 @@ const faqs = [
     a: 'Sí. Está orientado a operación institucional por equipos, con estructura multiusuario y flujo docente repetible.',
   },
   {
-    q: '¿Qué requiere para iniciar un piloto?',
-    a: 'Una sesión de discovery, definición de objetivos de entrenamiento y habilitación de la instancia institucional.',
+    q: '¿Qué necesito para empezar?',
+    a: 'Una conversación de 30 minutos para entender tu programa. Nosotros configuramos el acceso.',
   },
 ]
 
@@ -44,7 +44,7 @@ export function TestimonialsFaq() {
         </motion.div>
 
         <div>
-          <SectionTitle eyebrow="FAQ enterprise" title="Preguntas de decisión institucional" align="left" />
+          <SectionTitle eyebrow="Preguntas frecuentes" title="Lo que suelen preguntar antes de pedir la demo" align="left" />
           <div className="space-y-3">
             {faqs.map((item) => (
               <motion.article

@@ -86,8 +86,8 @@ export function ContactSection() {
       <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <SectionTitle
           eyebrow="Contacto"
-          title="Inicia evaluación institucional"
-          subtitle="Cuéntanos tu escenario docente y diseñamos una propuesta de implementación."
+          title="Agenda una demo con tu equipo"
+          subtitle="Cuéntanos sobre tu programa y te mostramos cómo se vería una sesión con tu institución."
         />
         <div className="grid gap-5 lg:grid-cols-[1fr_1.2fr]">
           <motion.div
@@ -102,7 +102,7 @@ export function ContactSection() {
                 WhatsApp comercial: +56 9 4213 9337
               </a>
               <a href="mailto:kinebulnes@gmail.com" className="block rounded-xl border border-med-blue/30 bg-med-blue/10 p-3 text-sm font-semibold text-med-blue transition hover:bg-med-blue/20">
-                Correo institucional: kinebulnes@gmail.com
+                Correo de contacto: kinebulnes@gmail.com
               </a>
             </div>
             <div className="mt-4 rounded-xl border border-white/10 bg-black/20 p-3 text-xs text-white/60">
@@ -117,7 +117,7 @@ export function ContactSection() {
             viewport={{ once: true, amount: 0.2 }}
             className="rounded-[1.5rem] border border-med-blue/25 bg-med-card/82 p-5 shadow-enterprise"
           >
-            <h3 className="text-lg font-extrabold text-med-text">Formulario consultivo enterprise</h3>
+            <h3 className="text-lg font-extrabold text-med-text">Cuéntanos sobre tu institución</h3>
             <div className="mt-4 grid gap-3">
               <label className="grid gap-1.5 text-xs text-med-muted">
                 Nombre y cargo
@@ -195,7 +195,7 @@ export function ContactSection() {
                   rows={4}
                   value={form.message}
                   onChange={(event) => updateField('message', event.target.value)}
-                  placeholder="Objetivo del programa, fecha estimada o requerimientos clave"
+                  placeholder="Describe tu programa, cantidad de alumnos o fecha estimada de inicio."
                   className="rounded-xl border border-white/10 bg-black/20 px-3 py-2.5 text-sm text-med-text outline-none placeholder:text-white/40 focus:border-med-blue/50"
                 />
               </label>
@@ -214,7 +214,7 @@ export function ContactSection() {
                 disabled={status === 'sending'}
                 className="rounded-xl border border-med-blue/35 bg-med-blue/12 px-4 py-2.5 text-sm font-extrabold uppercase tracking-wider text-med-cyan transition hover:bg-med-blue/20 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {status === 'sending' ? 'Enviando solicitud' : 'Solicitar evaluación'}
+                {status === 'sending' ? 'Enviando solicitud' : 'Solicitar demo'}
               </button>
             </div>
           </motion.form>

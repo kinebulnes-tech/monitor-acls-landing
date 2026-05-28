@@ -8,10 +8,10 @@ const trustItems = [
 ]
 
 const institutionalBlocks = [
-  ['Adopción', 'Piloto guiado, revisión de caso de uso y recomendación de modalidad.'],
-  ['Operación', 'Sesiones recurrentes con flujo docente consistente entre instructores.'],
-  ['Evidencia', 'Registro del caso, cierre pedagógico y salida documentable para coordinación.'],
-  ['Soporte', 'Acompañamiento comercial y técnico durante evaluación institucional.'],
+  ['Adopción', 'Piloto guiado con tu equipo para validar el ajuste al programa.'],
+  ['Operación', 'Flujo consistente que cualquier instructor puede ejecutar sin capacitación extensa.'],
+  ['Evidencia', 'Resumen de sesión exportable para auditoría académica o institucional.'],
+  ['Soporte', 'Acompañamiento durante evaluación y primeras sesiones del programa.'],
 ]
 
 export function TrustSection() {
@@ -30,7 +30,7 @@ export function TrustSection() {
             Preparado para evaluación técnica, académica y comercial.
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-med-muted md:text-base">
-            La landing debe vender seriedad antes que espectáculo. Esta sección comunica operación, trazabilidad y soporte sin inventar clientes ni certificaciones.
+            Monitor ACLS está diseñado para operar en programas formales de entrenamiento. Sin hardware adicional, con roles definidos y evidencia documentable por sesión.
           </p>
           <div className="mt-6 grid gap-2">
             {trustItems.map((item) => (
@@ -51,7 +51,7 @@ export function TrustSection() {
               transition={{ duration: 0.35, delay: idx * 0.05 }}
               className="rounded-2xl border border-white/10 bg-med-card/75 p-5 transition duration-300 hover:-translate-y-0.5 hover:border-med-cyan/30"
             >
-              <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-med-blue">Enterprise</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-med-blue">Institucional</p>
               <h3 className="mt-2 text-xl font-extrabold text-med-text">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-med-muted">{text}</p>
             </motion.article>
@@ -65,9 +65,9 @@ export function TrustSection() {
             className="rounded-2xl border border-med-ecg/30 bg-med-ecg/10 p-5 text-med-ecg transition duration-300 hover:-translate-y-0.5 hover:bg-med-ecg/15 sm:col-span-2"
           >
             <span className="text-[10px] font-bold uppercase tracking-[0.24em]">Siguiente paso</span>
-            <span className="mt-2 block text-xl font-extrabold text-med-text">Solicitar evaluación institucional</span>
+            <span className="mt-2 block text-xl font-extrabold text-med-text">Agendar demo con tu equipo</span>
             <span className="mt-2 block text-sm leading-relaxed text-med-soft/80">
-              Conversación consultiva para definir piloto, volumen de alumnos y modalidad de adopción.
+              Conversamos sobre tu programa y mostramos cómo funciona con tu institución.
             </span>
           </motion.a>
         </div>

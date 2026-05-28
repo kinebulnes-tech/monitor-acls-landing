@@ -6,9 +6,9 @@ export function VideoDemoSection() {
     <section className="border-y border-white/10 bg-med-panel/50" id="demo">
       <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <SectionTitle
-          eyebrow="Video demo"
-          title="Demo operacional sin sensación de placeholder"
-          subtitle="Un espacio preparado para video institucional, con fallback visual serio mientras se produce el material definitivo."
+          eyebrow="Demostración"
+          title="Así se ve una sesión real"
+          subtitle="Instructor configura el caso. Equipo responde en tiempo real. La sesión cierra con un resumen exportable."
         />
 
         <motion.div
@@ -34,23 +34,23 @@ export function VideoDemoSection() {
                 <div>
                   <p className="text-sm font-extrabold text-med-text">Flujo instructor → equipo → debrief</p>
                   <p className="mt-1 max-w-xl text-xs leading-relaxed text-med-soft/75">
-                    Preview visual mientras se incorpora el video institucional definitivo.
+                    Flujo completo: caso clínico → decisiones del equipo → debrief documentado.
                   </p>
                 </div>
                 <a
                   href="#contacto"
                   className="inline-flex shrink-0 rounded-xl border border-med-blue/35 bg-med-blue/15 px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-med-cyan transition hover:bg-med-blue/22"
                 >
-                  Solicitar demo
+                  Agendar demo
                 </a>
               </div>
             </div>
 
             <div className="grid content-between gap-3">
               {[
-                ['01', 'Configuración del caso', 'Ritmo, objetivos docentes y contexto clínico.'],
-                ['02', 'Ejecución realtime', 'Intervenciones y decisiones del equipo durante la sesión.'],
-                ['03', 'Cierre documentado', 'Resumen estructurado para coordinación académica.'],
+                ['01', 'Instructor activa el caso', 'Selecciona escenario, ritmo inicial y objetivos. En menos de dos minutos.'],
+                ['02', 'El equipo responde', 'Decisiones clínicas en tiempo real, con intervención del instructor cuando corresponde.'],
+                ['03', 'Sesión documentada', 'Resumen con acciones, tiempos y decisiones disponible al cerrar el caso.'],
               ].map(([step, title, text]) => (
                 <div key={step} className="rounded-2xl border border-white/10 bg-black/25 p-4">
                   <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-med-cyan">{step}</p>

@@ -13,27 +13,27 @@ const audience = [
 const plans = [
   {
     key: 'individual',
-    name: 'Plan Individual',
-    description: 'Evaluación ejecutiva y técnica para validar ajuste institucional.',
-    points: ['Revisión de caso de uso', 'Acceso preparado para licencia futura', 'Soporte de onboarding inicial'],
+    name: 'Individual',
+    description: 'Para instructores o programas pequeños que quieren evaluar el simulador antes de escalar.',
+    points: ['Acceso completo al simulador', 'Revisión de caso de uso', 'Soporte de onboarding inicial'],
     cta: 'Comprar licencia',
-    secondary: 'Elegir plan',
+    secondary: 'Consultar precio',
   },
   {
     key: 'institutional',
     name: 'Institucional',
     description: 'Implementación multiusuario para programas formales de entrenamiento.',
     points: ['Operación por equipo', 'Implementación por cohorte', 'Demo guiada para coordinación'],
-    cta: 'Solicitar demo',
-    secondary: 'Hablar con ventas',
+    cta: 'Agendar demo',
+    secondary: 'Consultar con ventas',
   },
   {
     key: 'enterprise',
-    name: 'Enterprise',
-    description: 'Diseño comercial para sedes, alto volumen y acompañamiento técnico.',
-    points: ['Cotización consultiva', 'Acompañamiento comercial/técnico', 'Preparado para flujo de compra futuro'],
+    name: 'Multi-sede',
+    description: 'Para instituciones con múltiples sedes, alto volumen y requerimientos específicos.',
+    points: ['Cotización a medida', 'Acompañamiento comercial y técnico', 'Onboarding guiado para toda la institución'],
     cta: 'Solicitar cotización',
-    secondary: 'Hablar con ventas',
+    secondary: 'Consultar con ventas',
   },
 ] as const
 
@@ -42,9 +42,9 @@ export function AudiencePlans() {
     <section className="border-y border-white/10 bg-med-panel/52" id="planes">
       <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <SectionTitle
-          eyebrow="Público y planes"
-          title="Modelos de adopción para instituciones de salud y educación"
-          subtitle="La conversión se orienta a evaluación consultiva, no a compra impulsiva."
+          eyebrow="Planes"
+          title="Modelos de licencia para cada institución"
+          subtitle="Desde instructores independientes hasta programas con múltiples sedes."
         />
         <div className="grid gap-5 lg:grid-cols-[1fr_1.6fr]">
           <motion.div

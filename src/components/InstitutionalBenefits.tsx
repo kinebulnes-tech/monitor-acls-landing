@@ -3,20 +3,20 @@ import { SectionTitle } from './SectionTitle'
 
 const benefits = [
   {
-    title: 'Escalabilidad académica',
-    value: 'Amplía práctica sin multiplicar hardware físico.',
+    title: 'Más sesiones, sin más salas',
+    value: 'Entrena grupos simultáneos sin duplicar infraestructura.',
   },
   {
-    title: 'Trazabilidad docente',
-    value: 'Debrief y reportes estructurados por sesión de equipo.',
+    title: 'Registro por sesión',
+    value: 'Cada caso queda documentado: acciones, tiempos y equipo.',
   },
   {
-    title: 'Estandarización operativa',
-    value: 'Mismo marco de entrenamiento entre sedes e instructores.',
+    title: 'El mismo entrenamiento en todas tus sedes',
+    value: 'Sin depender del criterio de cada instructor.',
   },
   {
-    title: 'Costo de entrenamiento controlado',
-    value: 'Reduce dependencia de simulación presencial de alta fricción.',
+    title: 'Menor costo por sesión',
+    value: 'Sin consumibles, sin sala dedicada, sin logística adicional.',
   },
 ]
 
@@ -27,7 +27,7 @@ export function InstitutionalBenefits() {
         <SectionTitle
           eyebrow="Beneficios institucionales"
           title="Resultados que importan a coordinación académica"
-          subtitle="El valor enterprise está en estandarizar la operación, no solo en mostrar un monitor atractivo."
+          subtitle="Lo que importa no es el monitor. Es que el equipo sepa qué hacer cuando el ritmo cambia."
         />
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit, idx) => (

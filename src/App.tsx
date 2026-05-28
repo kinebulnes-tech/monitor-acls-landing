@@ -28,11 +28,11 @@ function App() {
           <section className="border-b border-white/10 bg-med-bg" id="simulador-proximamente">
             <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-5 py-5 md:flex-row md:items-center md:justify-between md:px-8">
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-med-cyan">Acceso al simulador</p>
-                <h2 className="mt-1 text-lg font-extrabold text-med-text">Simulador próximamente disponible</h2>
+                <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-med-cyan">Acceso institucional</p>
+                <h2 className="mt-1 text-lg font-extrabold text-med-text">Acceso directo disponible con tu licencia</h2>
               </div>
               <p className="max-w-2xl text-sm leading-relaxed text-med-muted">
-                El acceso directo quedará habilitado cuando se configure la URL oficial del simulador. Mientras tanto, puedes solicitar una demo institucional.
+                El simulador se habilita tras la configuración institucional. Agenda una demo para ver el flujo completo con tu equipo.
               </p>
             </div>
           </section>
@@ -56,7 +56,7 @@ function App() {
         onClick={() => trackCommercialEvent('click_demo', { source: 'mobile_fixed' })}
         className="fixed bottom-4 left-4 right-4 z-40 rounded-xl border border-med-blue/35 bg-med-bg/90 px-4 py-3 text-center text-xs font-extrabold uppercase tracking-wider text-med-cyan shadow-blue backdrop-blur-md md:hidden"
       >
-        Solicitar demo institucional
+        Agendar demo
       </a>
       <Footer />
     </div>
