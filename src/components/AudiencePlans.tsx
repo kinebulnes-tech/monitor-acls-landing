@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { SectionTitle } from './SectionTitle'
 import { trackCommercialEvent } from '../lib/commercial'
@@ -40,13 +40,6 @@ function CheckCyan() {
 }
 
 export function AudiencePlans() {
-  const navigate = useNavigate()
-
-  function goToCheckout(plan: 'individual' | 'institutional') {
-    trackCommercialEvent('click_buy_plan', { source: 'plans', plan })
-    navigate(`/checkout/${plan}`)
-  }
-
   return (
     <section className="border-y border-white/10 bg-med-panel/52" id="planes">
       <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
@@ -92,13 +85,13 @@ export function AudiencePlans() {
             </ul>
 
             <div className="mt-5 space-y-2">
-              <button
-                type="button"
-                onClick={() => goToCheckout('individual')}
+              <Link
+                to="/checkout/individual"
+                onClick={() => trackCommercialEvent('click_buy_plan', { source: 'plans', plan: 'individual' })}
                 className="block w-full rounded-xl border border-med-ecg/40 bg-med-ecg/15 px-4 py-3 text-center text-sm font-extrabold uppercase tracking-wider text-med-ecg transition hover:bg-med-ecg/25 active:scale-[0.98]"
               >
                 Comprar plan Individual
-              </button>
+              </Link>
               <a
                 href="#contacto"
                 onClick={() => trackCommercialEvent('click_demo', { source: 'plans_secondary', plan: 'individual' })}
@@ -149,13 +142,13 @@ export function AudiencePlans() {
             </ul>
 
             <div className="mt-5 space-y-2">
-              <button
-                type="button"
-                onClick={() => goToCheckout('institutional')}
+              <Link
+                to="/checkout/institutional"
+                onClick={() => trackCommercialEvent('click_buy_plan', { source: 'plans', plan: 'institutional' })}
                 className="block w-full rounded-xl border border-med-blue/40 bg-med-blue/20 px-4 py-3 text-center text-sm font-extrabold uppercase tracking-wider text-med-cyan transition hover:bg-med-blue/30 active:scale-[0.98]"
               >
                 Comprar plan Institucional
-              </button>
+              </Link>
               <a
                 href="#contacto"
                 onClick={() => trackCommercialEvent('click_demo', { source: 'plans_secondary', plan: 'institutional' })}
