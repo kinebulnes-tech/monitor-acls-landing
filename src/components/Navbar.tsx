@@ -34,14 +34,14 @@ export function Navbar() {
             onClick={() => trackCommercialEvent('click_simulator', { source: 'navbar' })}
             className="rounded-lg border border-white/15 bg-white/[0.04] px-3 py-2 text-[11px] font-extrabold text-med-soft transition hover:border-med-cyan/35 hover:text-white"
           >
-            Ver demo
+            Acceder al simulador
           </a>
           <a
             href="#contacto"
             onClick={() => trackCommercialEvent('click_demo', { source: 'navbar' })}
             className="rounded-lg border border-med-blue/35 bg-med-blue/10 px-3 py-2 text-[11px] font-extrabold text-med-cyan transition hover:bg-med-blue/20"
           >
-            Solicitar acceso
+            Agendar demo
           </a>
         </nav>
 
@@ -68,13 +68,6 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="#contacto"
-              onClick={() => setOpen(false)}
-              className="rounded-lg border border-med-blue/35 bg-med-blue/10 px-3 py-2 text-xs font-extrabold uppercase tracking-wider text-med-cyan"
-            >
-              Solicitar acceso
-            </a>
-            <a
               href={simulatorHref}
               target={simulatorIsExternal ? '_blank' : undefined}
               rel={simulatorIsExternal ? 'noreferrer' : undefined}
@@ -82,9 +75,16 @@ export function Navbar() {
                 setOpen(false)
                 trackCommercialEvent('click_simulator', { source: 'mobile_nav' })
               }}
-              className="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-xs font-extrabold uppercase tracking-wider text-med-soft"
+              className="rounded-lg border border-med-ecg/35 bg-med-ecg/10 px-3 py-2 text-xs font-extrabold uppercase tracking-wider text-med-ecg"
             >
-              Ver demo
+              Acceder al simulador
+            </a>
+            <a
+              href="#contacto"
+              onClick={() => setOpen(false)}
+              className="rounded-lg border border-med-blue/35 bg-med-blue/10 px-3 py-2 text-xs font-extrabold uppercase tracking-wider text-med-cyan"
+            >
+              Agendar demo
             </a>
           </nav>
         </div>

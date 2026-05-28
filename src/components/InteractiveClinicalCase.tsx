@@ -230,7 +230,7 @@ export function InteractiveClinicalCase() {
               </a>
               <a
                 href="#demo"
-                onClick={() => trackCommercialEvent('click_demo_section', { source: 'micro_case' })}
+                onClick={() => trackCommercialEvent('click_demo', { source: 'micro_case' })}
                 className="ml-0 mt-2 inline-flex rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider text-med-soft transition hover:border-med-cyan/35 hover:text-white sm:ml-2"
               >
                 Ver demo completo

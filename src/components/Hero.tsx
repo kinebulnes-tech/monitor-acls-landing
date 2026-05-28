@@ -42,24 +42,26 @@ export function Hero() {
 
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href="#contacto"
-              onClick={() => trackCommercialEvent('click_demo', { source: 'hero' })}
+              href={simulatorHref}
+              target={simulatorIsExternal ? '_blank' : undefined}
+              rel={simulatorIsExternal ? 'noreferrer' : undefined}
+              onClick={() => trackCommercialEvent('click_simulator', { source: 'hero' })}
               className="group rounded-xl border border-med-ecg/40 bg-med-ecg/20 px-5 py-3 text-sm font-extrabold uppercase tracking-wider text-med-ecg shadow-glow transition duration-300 hover:-translate-y-0.5 hover:bg-med-ecg/30"
             >
-              Ver cómo funciona
+              Acceder al simulador
             </a>
             <a
               href="#contacto"
-              onClick={() => trackCommercialEvent('click_demo', { source: 'hero_access' })}
+              onClick={() => trackCommercialEvent('click_demo', { source: 'hero' })}
               className="rounded-xl border border-med-blue/40 bg-med-blue/10 px-5 py-3 text-sm font-extrabold uppercase tracking-wider text-med-cyan transition duration-300 hover:-translate-y-0.5 hover:bg-med-blue/20"
             >
-              Solicitar acceso institucional
+              Agendar demo
             </a>
             <a
-              href="#demo"
+              href="#como-funciona"
               className="rounded-xl border border-med-blue/40 bg-med-blue/10 px-5 py-3 text-sm font-extrabold uppercase tracking-wider text-med-cyan transition duration-300 hover:-translate-y-0.5 hover:bg-med-blue/20"
             >
-              Ver demo en 3 minutos
+              Ver cómo funciona
             </a>
           </div>
 
