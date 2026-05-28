@@ -45,7 +45,7 @@ export function AudiencePlans() {
       <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <SectionTitle
           eyebrow="Licencias"
-          title="Entrena ACLS/BLS sin depender de hardware especializado"
+          title="Planes diseñados para formación clínica institucional"
           subtitle="Acceso inmediato. Precio claro. Simulación clínica profesional desde navegador web."
         />
 

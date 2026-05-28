@@ -63,7 +63,7 @@ export function ProblemSolution() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.45, delay: 0.05 }}
-            className="rounded-2xl border border-med-ecg/18 bg-med-ecg/6 px-5 py-6 md:px-6"
+            className="rounded-2xl border border-med-ecg/18 bg-med-ecg/10 px-5 py-6 md:px-6"
           >
             <p className="text-[10px] font-bold uppercase tracking-[0.26em] text-med-ecg/80">La solución</p>
             <h3 className="mt-3 text-xl font-extrabold tracking-tight text-med-text">Entrenamiento que se puede repetir, medir y documentar</h3>

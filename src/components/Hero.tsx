@@ -57,13 +57,16 @@ export function Hero() {
             >
               Agendar demo
             </a>
-            <a
-              href="#como-funciona"
-              className="rounded-xl border border-med-blue/40 bg-med-blue/10 px-5 py-3 text-sm font-extrabold uppercase tracking-wider text-med-cyan transition duration-300 hover:-translate-y-0.5 hover:bg-med-blue/20"
-            >
-              Ver cómo funciona
-            </a>
           </div>
+          <a
+            href="#como-funciona"
+            className="inline-flex items-center gap-1.5 text-xs text-med-muted/70 transition hover:text-med-muted"
+          >
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
+              <path d="M6 2v8M2.5 6.5l3.5 3.5 3.5-3.5" />
+            </svg>
+            Ver cómo funciona
+          </a>
 
           <div className="grid gap-2">
             {trustIndicators.map((item) => (

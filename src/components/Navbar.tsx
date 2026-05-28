@@ -8,7 +8,7 @@ export function Navbar() {
   const links = [
     { href: '#como-funciona', label: 'Cómo funciona' },
     { href: '#micro-caso', label: 'Simulación' },
-    { href: '#arquitectura', label: 'Arquitectura' },
+    { href: '#arquitectura', label: 'Proceso' },
     { href: '#planes', label: 'Planes' },
     { href: '#faq', label: 'FAQ' },
     { href: '#contacto', label: 'Contacto' },
