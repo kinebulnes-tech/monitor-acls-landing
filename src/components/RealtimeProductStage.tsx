@@ -25,7 +25,7 @@ export function RealtimeProductStage() {
           className="enterprise-surface relative overflow-hidden rounded-[1.75rem] p-3 md:p-4"
         >
           <div className="pointer-events-none absolute -right-24 -top-20 h-72 w-72 rounded-full bg-med-blue/10 blur-3xl" />
-          <div className="relative rounded-2xl border border-white/10 bg-black/45 p-3 md:p-4">
+          <div className="relative rounded-2xl border border-white/10 bg-black/40 p-3 md:p-4">
             <img
               src="/monitor-real-3.jpg"
               alt="Monitor ACLS en tiempo real"

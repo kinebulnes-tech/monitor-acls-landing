@@ -2,6 +2,7 @@ import { MotionConfig } from 'framer-motion'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { RealtimeProductStage } from './components/RealtimeProductStage'
+import { InteractiveClinicalCase } from './components/InteractiveClinicalCase'
 import { HowItWorks } from './components/HowItWorks'
 import { ClinicalUseCases } from './components/ClinicalUseCases'
 import { ProblemSolution } from './components/ProblemSolution'
@@ -23,6 +24,7 @@ function App() {
       <main>
         <Hero />
         <RealtimeProductStage />
+        <InteractiveClinicalCase />
         <ProblemSolution />
         <InstitutionalBenefits />
         <TrustSection />

@@ -52,7 +52,7 @@ export function VideoDemoSection() {
                 ['02', 'Ejecución realtime', 'Intervenciones y decisiones del equipo durante la sesión.'],
                 ['03', 'Cierre documentado', 'Resumen estructurado para coordinación académica.'],
               ].map(([step, title, text]) => (
-                <div key={step} className="rounded-2xl border border-white/10 bg-black/24 p-4">
+                <div key={step} className="rounded-2xl border border-white/10 bg-black/25 p-4">
                   <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-med-cyan">{step}</p>
                   <h3 className="mt-2 text-base font-extrabold text-med-text">{title}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-med-muted">{text}</p>

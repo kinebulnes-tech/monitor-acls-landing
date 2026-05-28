@@ -15,7 +15,7 @@ const solutionItems = [
 
 export function ProblemSolution() {
   return (
-    <section className="border-y border-white/10 bg-med-panel/45">
+    <section className="border-y border-white/10 bg-med-panel/50">
       <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <SectionTitle
           eyebrow="Problema vs solución"
