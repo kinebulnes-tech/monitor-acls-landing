@@ -128,7 +128,7 @@ export function FaqSection() {
 
   return (
     <section id="faq" className="border-t border-white/8 bg-med-bg">
-      <div className="mx-auto w-full max-w-4xl px-5 py-16 md:px-8 md:py-24">
+      <div className="mx-auto w-full max-w-5xl px-5 py-16 md:px-8 md:py-24">
         <SectionTitle
           eyebrow="Preguntas frecuentes"
           title="Todo lo que necesitas saber antes de decidir"
@@ -159,7 +159,7 @@ export function FaqSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.4, delay: 0.15 }}
-          className="mt-8 rounded-xl border border-med-blue/25 bg-med-blue/8 px-6 py-5 text-center"
+          className="mt-8 rounded-xl border border-med-blue/25 bg-med-blue/12 px-6 py-5 text-center"
         >
           <p className="text-sm font-semibold text-med-text">
             ¿Tienes dudas sobre licencias institucionales?{' '}

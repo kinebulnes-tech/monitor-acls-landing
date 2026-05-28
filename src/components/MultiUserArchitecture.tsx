@@ -18,7 +18,7 @@ const layers = [
 
 export function MultiUserArchitecture() {
   return (
-    <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24" id="arquitectura">
+    <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
       <SectionTitle
         eyebrow="Roles y accesos"
         title="Instructor, participante y coordinador. Cada uno ve lo que necesita ver."

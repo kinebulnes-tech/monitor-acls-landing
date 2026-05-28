@@ -44,7 +44,7 @@ export function TestimonialsFaq() {
         </motion.div>
 
         <div>
-          <SectionTitle eyebrow="Antes de la demo" title="Lo que suelen preguntar antes de conocer la plataforma" align="left" />
+          <SectionTitle eyebrow="Evaluación técnica" title="Lo que preguntan los responsables de adopción" align="left" />
           <div className="space-y-3">
             {faqs.map((item) => (
               <motion.article

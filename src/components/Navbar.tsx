@@ -10,6 +10,7 @@ export function Navbar() {
     { href: '#micro-caso', label: 'Simulación' },
     { href: '#arquitectura', label: 'Arquitectura' },
     { href: '#planes', label: 'Planes' },
+    { href: '#faq', label: 'FAQ' },
     { href: '#contacto', label: 'Contacto' },
   ]
 
