@@ -101,8 +101,8 @@ export function ContactSection() {
               <a href="https://wa.me/56942139337" className="block rounded-xl border border-med-ecg/30 bg-med-ecg/10 p-3 text-sm font-semibold text-med-ecg transition hover:bg-med-ecg/20">
                 WhatsApp comercial: +56 9 4213 9337
               </a>
-              <a href="mailto:kinebulnes@gmail.com" className="block rounded-xl border border-med-blue/30 bg-med-blue/10 p-3 text-sm font-semibold text-med-blue transition hover:bg-med-blue/20">
-                Correo de contacto: kinebulnes@gmail.com
+              <a href="mailto:contacto@monitoracls.com" className="block rounded-xl border border-med-blue/30 bg-med-blue/10 p-3 text-sm font-semibold text-med-blue transition hover:bg-med-blue/20">
+                Correo: contacto@monitoracls.com
               </a>
             </div>
             <div className="mt-4 rounded-xl border border-white/10 bg-black/20 p-3 text-xs text-white/60">
