@@ -13,7 +13,6 @@ import { TestimonialsFaq } from './components/TestimonialsFaq'
 import { ContactSection } from './components/ContactSection'
 import { Footer } from './components/Footer'
 import { CheckoutPage } from './pages/CheckoutPage'
-import { trackCommercialEvent } from './lib/commercial'
 
 function Landing() {
   return (
@@ -31,13 +30,6 @@ function Landing() {
         <TestimonialsFaq />
         <ContactSection />
       </main>
-      <a
-        href="#contacto"
-        onClick={() => trackCommercialEvent('click_demo', { source: 'mobile_fixed' })}
-        className="fixed bottom-4 left-4 right-4 z-40 rounded-xl border border-med-blue/35 bg-med-bg/90 px-4 py-3 text-center text-xs font-extrabold uppercase tracking-wider text-med-cyan shadow-blue backdrop-blur-md md:hidden"
-      >
-        Agendar demo
-      </a>
       <Footer />
     </div>
   )
