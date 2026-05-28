@@ -1,18 +1,24 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { MotionConfig } from 'framer-motion'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
-import { RealtimeProductStage } from './components/RealtimeProductStage'
-import { InteractiveClinicalCase } from './components/InteractiveClinicalCase'
-import { HowItWorks } from './components/HowItWorks'
 import { ProblemSolution } from './components/ProblemSolution'
-import { ClinicalCapabilities } from './components/ClinicalCapabilities'
-import { AudiencePlans } from './components/AudiencePlans'
-import { TrustSection } from './components/TrustSection'
-import { TestimonialsFaq } from './components/TestimonialsFaq'
-import { ContactSection } from './components/ContactSection'
 import { Footer } from './components/Footer'
-import { CheckoutPage } from './pages/CheckoutPage'
+
+const RealtimeProductStage = lazy(() => import('./components/RealtimeProductStage').then(m => ({ default: m.RealtimeProductStage })))
+const HowItWorks = lazy(() => import('./components/HowItWorks').then(m => ({ default: m.HowItWorks })))
+const InteractiveClinicalCase = lazy(() => import('./components/InteractiveClinicalCase').then(m => ({ default: m.InteractiveClinicalCase })))
+const ClinicalCapabilities = lazy(() => import('./components/ClinicalCapabilities').then(m => ({ default: m.ClinicalCapabilities })))
+const TrustSection = lazy(() => import('./components/TrustSection').then(m => ({ default: m.TrustSection })))
+const AudiencePlans = lazy(() => import('./components/AudiencePlans').then(m => ({ default: m.AudiencePlans })))
+const TestimonialsFaq = lazy(() => import('./components/TestimonialsFaq').then(m => ({ default: m.TestimonialsFaq })))
+const ContactSection = lazy(() => import('./components/ContactSection').then(m => ({ default: m.ContactSection })))
+const CheckoutPage = lazy(() => import('./pages/CheckoutPage').then(m => ({ default: m.CheckoutPage })))
+
+function SectionFallback() {
+  return <div className="min-h-[200px] bg-med-bg" aria-hidden="true" />
+}
 
 function Landing() {
   return (
@@ -21,14 +27,30 @@ function Landing() {
       <main>
         <Hero />
         <ProblemSolution />
-        <RealtimeProductStage />
-        <HowItWorks />
-        <InteractiveClinicalCase />
-        <ClinicalCapabilities />
-        <TrustSection />
-        <AudiencePlans />
-        <TestimonialsFaq />
-        <ContactSection />
+        <Suspense fallback={<SectionFallback />}>
+          <RealtimeProductStage />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <HowItWorks />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <InteractiveClinicalCase />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <ClinicalCapabilities />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <TrustSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <AudiencePlans />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <TestimonialsFaq />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <ContactSection />
+        </Suspense>
       </main>
       <Footer />
     </div>
@@ -40,8 +62,22 @@ function App() {
     <MotionConfig reducedMotion="user">
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/checkout/individual" element={<CheckoutPage plan="individual" />} />
-        <Route path="/checkout/institutional" element={<CheckoutPage plan="institutional" />} />
+        <Route
+          path="/checkout/individual"
+          element={
+            <Suspense fallback={<div className="min-h-screen bg-med-bg" />}>
+              <CheckoutPage plan="individual" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/checkout/institutional"
+          element={
+            <Suspense fallback={<div className="min-h-screen bg-med-bg" />}>
+              <CheckoutPage plan="institutional" />
+            </Suspense>
+          }
+        />
         <Route path="*" element={<Landing />} />
       </Routes>
     </MotionConfig>

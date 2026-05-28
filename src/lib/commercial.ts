@@ -21,7 +21,6 @@ declare global {
 }
 
 const fallbackSimulatorHref = '#simulador-proximamente'
-const fallbackContactHref = '#contacto'
 
 export const simulatorUrl = import.meta.env.VITE_SIMULATOR_URL?.trim() || ''
 

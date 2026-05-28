@@ -103,12 +103,19 @@ export function Hero() {
             <div className="absolute left-5 top-5 z-10 hidden rounded-full border border-white/10 bg-black/40 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-med-soft/80 sm:block">
               Sesión ACLS
             </div>
-            <img
-              src="/monitor-real-1.jpg"
-              alt="Vista clínica de Monitor ACLS"
-              loading="eager"
-              className="h-auto w-full rounded-2xl border border-white/10 bg-black/40 object-cover shadow-[0_20px_70px_-38px_rgba(86,214,255,0.58)]"
-            />
+            <picture>
+              <source srcSet="/monitor-real-1.webp" type="image/webp" />
+              <img
+                src="/monitor-real-1.jpg"
+                alt="Vista clínica de Monitor ACLS"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                width="1280"
+                height="720"
+                className="h-auto w-full rounded-2xl border border-white/10 bg-black/40 object-cover shadow-[0_20px_70px_-38px_rgba(86,214,255,0.58)]"
+              />
+            </picture>
             <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
               {[
                 ['Estado', 'Sesión activa'],

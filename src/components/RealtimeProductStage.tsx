@@ -27,12 +27,18 @@ export function RealtimeProductStage() {
         >
           <div className="pointer-events-none absolute -right-24 -top-20 h-72 w-72 rounded-full bg-med-blue/10 blur-3xl" />
           <div className="relative rounded-2xl border border-white/10 bg-black/40 p-3 md:p-4">
-            <img
-              src="/monitor-real-3.jpg"
-              alt="Monitor ACLS en tiempo real"
-              loading="lazy"
-              className="h-auto w-full rounded-xl border border-white/10 object-cover shadow-[0_18px_40px_-30px_rgba(0,0,0,0.8)]"
-            />
+            <picture>
+              <source srcSet="/monitor-real-3.webp" type="image/webp" />
+              <img
+                src="/monitor-real-3.jpg"
+                alt="Monitor ACLS en tiempo real"
+                loading="lazy"
+                decoding="async"
+                width="1280"
+                height="720"
+                className="h-auto w-full rounded-xl border border-white/10 object-cover shadow-[0_18px_40px_-30px_rgba(0,0,0,0.8)]"
+              />
+            </picture>
             <div className="mt-3 flex flex-wrap gap-2">
               {telemetry.map(([k, v], idx) => (
                 <motion.div

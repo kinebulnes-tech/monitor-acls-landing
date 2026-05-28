@@ -209,18 +209,13 @@ export function CheckoutPage({ plan }: Props) {
             </p>
           )}
 
-          <Link
-            to="/"
-            onClick={() => {
-              trackCommercialEvent('click_demo', { source: 'checkout_secondary', plan })
-              setTimeout(() => {
-                document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })
-              }, 50)
-            }}
+          <a
+            href="/#contacto"
+            onClick={() => trackCommercialEvent('click_demo', { source: 'checkout_secondary', plan })}
             className="block rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-center text-xs font-extrabold uppercase tracking-wider text-med-muted transition hover:text-med-soft"
           >
             Prefiero solicitar una demo
-          </Link>
+          </a>
         </div>
 
         <p className="mt-6 text-center text-xs text-med-muted">

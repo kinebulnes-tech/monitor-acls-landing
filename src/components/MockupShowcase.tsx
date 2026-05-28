@@ -25,12 +25,18 @@ export function MockupShowcase() {
             transition={{ duration: 0.45, delay: i * 0.06 }}
             className="rounded-2xl border border-white/10 bg-med-card p-3"
           >
-            <img
-              src={card.src}
-              alt={card.title}
-              loading="lazy"
-              className="h-auto w-full rounded-xl border border-white/10 bg-black/40 object-cover"
-            />
+            <picture>
+              <source srcSet={card.src.replace('.jpg', '.webp')} type="image/webp" />
+              <img
+                src={card.src}
+                alt={card.title}
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="500"
+                className="h-auto w-full rounded-xl border border-white/10 bg-black/40 object-cover"
+              />
+            </picture>
             <h3 className="mt-3 text-lg font-extrabold text-med-text">{card.title}</h3>
             <p className="mt-1 text-sm text-med-muted">{card.description}</p>
           </motion.article>

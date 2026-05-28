@@ -20,12 +20,18 @@ export function VideoDemoSection() {
           <div className="pointer-events-none absolute -right-16 -top-16 h-80 w-80 rounded-full bg-med-blue/12 blur-3xl" />
           <div className="relative grid gap-4 lg:grid-cols-[1.25fr_0.75fr]">
             <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black/55">
-              <img
-                src="/monitor-real-2.jpg"
-                alt="Preview de demo operacional Monitor ACLS"
-                loading="lazy"
-                className="h-full w-full object-cover opacity-80"
-              />
+              <picture>
+                <source srcSet="/monitor-real-2.webp" type="image/webp" />
+                <img
+                  src="/monitor-real-2.jpg"
+                  alt="Preview de demo operacional Monitor ACLS"
+                  loading="lazy"
+                  decoding="async"
+                  width="1280"
+                  height="720"
+                  className="h-full w-full object-cover opacity-80"
+                />
+              </picture>
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
               <div className="absolute left-4 top-4 rounded-full border border-med-ecg/35 bg-black/55 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-med-ecg">
                 Demo guiada
