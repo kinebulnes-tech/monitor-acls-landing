@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { SectionTitle } from './SectionTitle'
-import { getCheckoutHref, trackCommercialEvent, type BillingCycle } from '../lib/commercial'
+import { trackCommercialEvent, type BillingCycle } from '../lib/commercial'
 
 const individualPoints = [
   'Simulación ACLS y BLS completa',
@@ -32,6 +33,7 @@ function Check() {
 
 export function AudiencePlans() {
   const [billing, setBilling] = useState<BillingCycle>('monthly')
+  const navigate = useNavigate()
 
   return (
     <section className="border-y border-white/10 bg-med-panel/52" id="planes">
@@ -114,13 +116,16 @@ export function AudiencePlans() {
             </ul>
 
             <div className="mt-5 space-y-2">
-              <a
-                href={getCheckoutHref('individual', billing)}
-                onClick={() => trackCommercialEvent('click_buy_plan', { source: 'plans', plan: 'individual', billingCycle: billing })}
-                className="block rounded-xl border border-med-ecg/40 bg-med-ecg/15 px-4 py-3 text-center text-sm font-extrabold uppercase tracking-wider text-med-ecg transition hover:bg-med-ecg/25"
+              <button
+                type="button"
+                onClick={() => {
+                  trackCommercialEvent('click_buy_plan', { source: 'plans', plan: 'individual', billingCycle: billing })
+                  navigate('/checkout/individual')
+                }}
+                className="block w-full rounded-xl border border-med-ecg/40 bg-med-ecg/15 px-4 py-3 text-center text-sm font-extrabold uppercase tracking-wider text-med-ecg transition hover:bg-med-ecg/25"
               >
-                {billing === 'monthly' ? 'Comprar licencia mensual' : 'Comprar licencia anual'}
-              </a>
+                Elegir plan Individual
+              </button>
               <a
                 href="#contacto"
                 onClick={() => trackCommercialEvent('click_demo', { source: 'plans_secondary', plan: 'individual' })}
@@ -180,13 +185,16 @@ export function AudiencePlans() {
             </ul>
 
             <div className="mt-5 space-y-2">
-              <a
-                href={getCheckoutHref('institutional', billing)}
-                onClick={() => trackCommercialEvent('click_buy_plan', { source: 'plans', plan: 'institutional', billingCycle: billing })}
-                className="block rounded-xl border border-med-blue/40 bg-med-blue/20 px-4 py-3 text-center text-sm font-extrabold uppercase tracking-wider text-med-cyan transition hover:bg-med-blue/30"
+              <button
+                type="button"
+                onClick={() => {
+                  trackCommercialEvent('click_buy_plan', { source: 'plans', plan: 'institutional', billingCycle: billing })
+                  navigate('/checkout/institutional')
+                }}
+                className="block w-full rounded-xl border border-med-blue/40 bg-med-blue/20 px-4 py-3 text-center text-sm font-extrabold uppercase tracking-wider text-med-cyan transition hover:bg-med-blue/30"
               >
-                {billing === 'monthly' ? 'Comprar plan institucional mensual' : 'Comprar plan institucional anual'}
-              </a>
+                Elegir plan Institucional
+              </button>
               <a
                 href="#contacto"
                 onClick={() => trackCommercialEvent('click_demo', { source: 'plans_secondary', plan: 'institutional' })}

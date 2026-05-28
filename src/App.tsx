@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom'
 import { MotionConfig } from 'framer-motion'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
@@ -11,35 +12,22 @@ import { TrustSection } from './components/TrustSection'
 import { TestimonialsFaq } from './components/TestimonialsFaq'
 import { ContactSection } from './components/ContactSection'
 import { Footer } from './components/Footer'
+import { CheckoutPage } from './pages/CheckoutPage'
 import { trackCommercialEvent } from './lib/commercial'
 
-function App() {
+function Landing() {
   return (
-    <MotionConfig reducedMotion="user">
     <div className="min-h-screen bg-med-bg text-med-text">
       <Navbar />
       <main>
-        {/* 1 — Problema antes que solución */}
         <Hero />
         <ProblemSolution />
-
-        {/* 2 — Solución y producto */}
         <RealtimeProductStage />
         <HowItWorks />
-
-        {/* 3 — Experiencia real */}
         <InteractiveClinicalCase />
-
-        {/* 4 — Evidencia y profundidad */}
         <ClinicalCapabilities />
-
-        {/* 5 — Confianza antes de precio */}
         <TrustSection />
-
-        {/* 6 — Decisión */}
         <AudiencePlans />
-
-        {/* 7 — Cierre */}
         <TestimonialsFaq />
         <ContactSection />
       </main>
@@ -52,6 +40,18 @@ function App() {
       </a>
       <Footer />
     </div>
+  )
+}
+
+function App() {
+  return (
+    <MotionConfig reducedMotion="user">
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/checkout/individual" element={<CheckoutPage plan="individual" />} />
+        <Route path="/checkout/institutional" element={<CheckoutPage plan="institutional" />} />
+        <Route path="*" element={<Landing />} />
+      </Routes>
     </MotionConfig>
   )
 }

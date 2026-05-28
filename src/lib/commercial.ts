@@ -26,17 +26,17 @@ const fallbackContactHref = '#contacto'
 export const simulatorUrl = import.meta.env.VITE_SIMULATOR_URL?.trim() || ''
 
 // TODO: Set these env vars to activate checkout (Stripe/MercadoPago/Webpay links)
-// VITE_CHECKOUT_INDIVIDUAL_URL       — Individual mensual
-// VITE_CHECKOUT_INDIVIDUAL_ANNUAL_URL — Individual anual
-// VITE_CHECKOUT_INSTITUTIONAL_URL    — Institucional mensual
-// VITE_CHECKOUT_INSTITUTIONAL_ANNUAL_URL — Institucional anual
+// VITE_CHECKOUT_INDIVIDUAL_MONTHLY_URL
+// VITE_CHECKOUT_INDIVIDUAL_ANNUAL_URL
+// VITE_CHECKOUT_INSTITUTIONAL_MONTHLY_URL
+// VITE_CHECKOUT_INSTITUTIONAL_ANNUAL_URL
 export const checkoutUrls = {
   individual: {
-    monthly: import.meta.env.VITE_CHECKOUT_INDIVIDUAL_URL?.trim() || '',
+    monthly: import.meta.env.VITE_CHECKOUT_INDIVIDUAL_MONTHLY_URL?.trim() || '',
     annual: import.meta.env.VITE_CHECKOUT_INDIVIDUAL_ANNUAL_URL?.trim() || '',
   },
   institutional: {
-    monthly: import.meta.env.VITE_CHECKOUT_INSTITUTIONAL_URL?.trim() || '',
+    monthly: import.meta.env.VITE_CHECKOUT_INSTITUTIONAL_MONTHLY_URL?.trim() || '',
     annual: import.meta.env.VITE_CHECKOUT_INSTITUTIONAL_ANNUAL_URL?.trim() || '',
   },
 }
@@ -50,14 +50,11 @@ export function getSimulatorHref() {
 }
 
 export function getCheckoutHref(plan: keyof typeof checkoutUrls, billing: BillingCycle = 'monthly') {
-  return checkoutUrls[plan][billing] || fallbackContactHref
+  return checkoutUrls[plan][billing] || ''
 }
 
-// TODO: Wire to Stripe/MercadoPago/Webpay — replace body with provider SDK call
-export function handlePlanCheckout(plan: keyof typeof checkoutUrls, billing: BillingCycle) {
-  trackCommercialEvent('click_buy_plan', { source: 'plans', plan, billingCycle: billing })
-  const href = getCheckoutHref(plan, billing)
-  window.location.href = href
+export function hasCheckoutUrl(plan: keyof typeof checkoutUrls, billing: BillingCycle) {
+  return checkoutUrls[plan][billing].length > 0
 }
 
 export function isExternalHref(href: string) {
