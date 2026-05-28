@@ -13,6 +13,7 @@ const ClinicalCapabilities = lazy(() => import('./components/ClinicalCapabilitie
 const TrustSection = lazy(() => import('./components/TrustSection').then(m => ({ default: m.TrustSection })))
 const AudiencePlans = lazy(() => import('./components/AudiencePlans').then(m => ({ default: m.AudiencePlans })))
 const TestimonialsFaq = lazy(() => import('./components/TestimonialsFaq').then(m => ({ default: m.TestimonialsFaq })))
+const FaqSection = lazy(() => import('./components/FaqSection').then(m => ({ default: m.FaqSection })))
 const ContactSection = lazy(() => import('./components/ContactSection').then(m => ({ default: m.ContactSection })))
 const CheckoutPage = lazy(() => import('./pages/CheckoutPage').then(m => ({ default: m.CheckoutPage })))
 
@@ -47,6 +48,9 @@ function Landing() {
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <TestimonialsFaq />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <FaqSection />
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <ContactSection />
