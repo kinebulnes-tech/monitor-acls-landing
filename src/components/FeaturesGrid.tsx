@@ -14,7 +14,7 @@ const features = [
 
 export function FeaturesGrid() {
   return (
-    <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8" id="funciones">
+    <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24" id="funciones">
       <SectionTitle
         eyebrow="Funcionalidades"
         title="Capacidades clínicas y operacionales"
@@ -28,9 +28,9 @@ export function FeaturesGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.4, delay: idx * 0.03 }}
-            className="rounded-xl border border-white/10 bg-med-card p-4 transition hover:border-med-blue/35 hover:bg-med-card/90"
+            className="rounded-2xl border border-white/10 bg-med-card/70 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-med-blue/35 hover:bg-med-elevated/85"
           >
-            <h3 className="text-sm font-black uppercase tracking-wider text-med-blue">{title}</h3>
+            <h3 className="text-sm font-extrabold uppercase tracking-wider text-med-cyan">{title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-med-muted">{description}</p>
           </motion.article>
         ))}

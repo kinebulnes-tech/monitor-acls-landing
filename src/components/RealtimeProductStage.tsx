@@ -10,21 +10,22 @@ const telemetry = [
 
 export function RealtimeProductStage() {
   return (
-    <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8">
+    <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
       <SectionTitle
         eyebrow="Producto en vivo"
-        title="Interfaz clínica con sensación realtime"
-        subtitle="Un entorno de simulación que se percibe operativo, no estático."
+        title="Una sesión clínica que se percibe operativa, no decorativa"
+        subtitle="El instructor controla el caso, el equipo responde al escenario y la plataforma conserva evidencia útil para el cierre académico."
       />
 
-      <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr]">
+      <div className="grid items-center gap-6 lg:grid-cols-[1.46fr_0.9fr]">
         <motion.article
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="rounded-3xl border border-med-blue/25 bg-med-card/80 p-4"
+          className="enterprise-surface relative overflow-hidden rounded-[1.75rem] p-3 md:p-4"
         >
-          <div className="rounded-2xl border border-white/10 bg-black/45 p-4">
+          <div className="pointer-events-none absolute -right-24 -top-20 h-72 w-72 rounded-full bg-med-blue/10 blur-3xl" />
+          <div className="relative rounded-2xl border border-white/10 bg-black/45 p-3 md:p-4">
             <img
               src="/monitor-real-3.jpg"
               alt="Monitor ACLS en tiempo real"
@@ -39,10 +40,10 @@ export function RealtimeProductStage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.35, delay: idx * 0.04 }}
-                  className="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2"
+                  className="rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2"
                 >
                   <p className="text-[9px] uppercase tracking-wider text-med-muted">{k}</p>
-                  <p className="mt-1 text-xs font-black text-med-text">{v}</p>
+                  <p className="mt-1 text-xs font-extrabold text-med-text">{v}</p>
                 </motion.div>
               ))}
             </div>
@@ -52,14 +53,17 @@ export function RealtimeProductStage() {
         <div className="space-y-3">
           {[
             {
+              step: '01',
               title: 'Control instructor',
               text: 'Cambio de ritmo, intervenciones, pausa/reanudación y cierre de caso sin fricción operacional.',
             },
             {
+              step: '02',
               title: 'Vista alumno sincronizada',
               text: 'Seguimiento en tiempo real con dinámica docente guiada por el instructor.',
             },
             {
+              step: '03',
               title: 'Debrief documentado',
               text: 'Resumen de caso y exportación PDF para trazabilidad académica e institucional.',
             },
@@ -70,10 +74,15 @@ export function RealtimeProductStage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.35, delay: idx * 0.05 }}
-              className="rounded-2xl border border-white/10 bg-med-card p-4"
+              className="group rounded-2xl border border-white/10 bg-med-card/75 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-med-blue/35 hover:bg-med-elevated/90"
             >
-              <h3 className="text-sm font-black uppercase tracking-wider text-med-blue">{item.title}</h3>
-              <p className="mt-2 text-sm text-med-muted">{item.text}</p>
+              <div className="flex items-start gap-3">
+                <span className="rounded-full border border-med-cyan/25 bg-med-blue/10 px-2 py-1 text-[10px] font-bold text-med-cyan">{item.step}</span>
+                <div>
+                  <h3 className="text-sm font-extrabold uppercase tracking-wider text-med-cyan">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-med-muted">{item.text}</p>
+                </div>
+              </div>
             </motion.article>
           ))}
         </div>

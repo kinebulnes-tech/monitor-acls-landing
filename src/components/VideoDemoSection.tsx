@@ -3,34 +3,61 @@ import { SectionTitle } from './SectionTitle'
 
 export function VideoDemoSection() {
   return (
-    <section className="border-y border-white/10 bg-med-panel/55">
-      <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8">
+    <section className="border-y border-white/10 bg-med-panel/50" id="demo">
+      <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <SectionTitle
           eyebrow="Video demo"
-          title="Demostración operacional de plataforma"
-          subtitle="Bloque listo para incorporar video institucional de 60–90 segundos."
+          title="Demo operacional sin sensación de placeholder"
+          subtitle="Un espacio preparado para video institucional, con fallback visual serio mientras se produce el material definitivo."
         />
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
-          className="relative overflow-hidden rounded-3xl border border-med-blue/30 bg-black/35 p-5"
+          className="enterprise-surface relative overflow-hidden rounded-[1.75rem] p-3 md:p-5"
         >
-          <div className="aspect-video rounded-2xl border border-white/10 bg-gradient-to-br from-[#0e1a2e] via-[#0b1423] to-[#0b1018] p-6">
-            <div className="flex h-full flex-col items-center justify-center gap-4 rounded-xl border border-dashed border-white/20 bg-black/25">
-              <span className="rounded-full border border-med-ecg/40 bg-med-ecg/10 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-med-ecg">
-                Demo institucional
-              </span>
-              <p className="max-w-xl text-center text-sm text-med-muted">
-                Reemplaza este bloque con video de plataforma en operación real: flujo instructor, ejecución de caso y debrief.
-              </p>
-              <button
-                type="button"
-                className="rounded-xl border border-med-blue/35 bg-med-blue/10 px-4 py-2 text-xs font-black uppercase tracking-wider text-med-blue"
-              >
-                Ver demo guiada
-              </button>
+          <div className="pointer-events-none absolute -right-16 -top-16 h-80 w-80 rounded-full bg-med-blue/12 blur-3xl" />
+          <div className="relative grid gap-4 lg:grid-cols-[1.25fr_0.75fr]">
+            <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black/55">
+              <img
+                src="/monitor-real-2.jpg"
+                alt="Preview de demo operacional Monitor ACLS"
+                loading="lazy"
+                className="h-full w-full object-cover opacity-80"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute left-4 top-4 rounded-full border border-med-ecg/35 bg-black/55 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-med-ecg">
+                Demo guiada
+              </div>
+              <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="text-sm font-extrabold text-med-text">Flujo instructor → equipo → debrief</p>
+                  <p className="mt-1 max-w-xl text-xs leading-relaxed text-med-soft/75">
+                    Preview visual mientras se incorpora el video institucional definitivo.
+                  </p>
+                </div>
+                <a
+                  href="#contacto"
+                  className="inline-flex shrink-0 rounded-xl border border-med-blue/35 bg-med-blue/15 px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-med-cyan transition hover:bg-med-blue/22"
+                >
+                  Solicitar demo
+                </a>
+              </div>
+            </div>
+
+            <div className="grid content-between gap-3">
+              {[
+                ['01', 'Configuración del caso', 'Ritmo, objetivos docentes y contexto clínico.'],
+                ['02', 'Ejecución realtime', 'Intervenciones y decisiones del equipo durante la sesión.'],
+                ['03', 'Cierre documentado', 'Resumen estructurado para coordinación académica.'],
+              ].map(([step, title, text]) => (
+                <div key={step} className="rounded-2xl border border-white/10 bg-black/24 p-4">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-med-cyan">{step}</p>
+                  <h3 className="mt-2 text-base font-extrabold text-med-text">{title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-med-muted">{text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>

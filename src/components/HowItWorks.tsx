@@ -18,8 +18,8 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="border-y border-white/10 bg-med-panel/55" id="como-funciona">
-      <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8">
+    <section className="border-y border-white/10 bg-med-panel/45" id="como-funciona">
+      <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <SectionTitle
           eyebrow="Cómo funciona"
           title="Flujo operativo simple para instituciones"
@@ -33,10 +33,11 @@ export function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.35, delay: idx * 0.06 }}
-              className="rounded-2xl border border-white/10 bg-med-card p-5"
+              className="relative overflow-hidden rounded-2xl border border-white/10 bg-med-card/72 p-5"
             >
-              <h3 className="text-lg font-black tracking-tight text-med-text">{step.title}</h3>
-              <p className="mt-2 text-sm text-med-muted">{step.detail}</p>
+              <div className="absolute -right-7 -top-7 h-20 w-20 rounded-full bg-med-blue/8 blur-2xl" />
+              <h3 className="relative text-lg font-extrabold tracking-tight text-med-text">{step.title}</h3>
+              <p className="relative mt-2 text-sm leading-relaxed text-med-muted">{step.detail}</p>
             </motion.article>
           ))}
         </div>

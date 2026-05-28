@@ -18,16 +18,16 @@ const faqs = [
 
 export function TestimonialsFaq() {
   return (
-    <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8">
+    <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
       <div className="grid gap-6 lg:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="rounded-2xl border border-white/10 bg-med-card p-6"
+          className="enterprise-surface rounded-[1.5rem] p-6"
         >
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-med-blue/80">Trust Section</p>
-          <h3 className="mt-3 text-3xl font-black tracking-tight text-med-text">Confianza para evaluación institucional</h3>
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-med-cyan/80">Evaluación</p>
+          <h3 className="mt-3 text-3xl font-extrabold tracking-tight text-med-text">Confianza para decisión institucional</h3>
           <p className="mt-3 text-sm text-med-muted">
             Preparado para procesos de evaluación académica, técnica y comercial en entornos de simulación clínica.
           </p>
@@ -52,9 +52,9 @@ export function TestimonialsFaq() {
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                className="rounded-xl border border-white/10 bg-med-card p-4"
+                className="rounded-xl border border-white/10 bg-med-card/75 p-4"
               >
-                <h4 className="text-sm font-black text-med-text">{item.q}</h4>
+                <h4 className="text-sm font-extrabold text-med-text">{item.q}</h4>
                 <p className="mt-2 text-sm text-med-muted">{item.a}</p>
               </motion.article>
             ))}

@@ -1,3 +1,4 @@
+import { MotionConfig } from 'framer-motion'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { RealtimeProductStage } from './components/RealtimeProductStage'
@@ -16,31 +17,33 @@ import { Footer } from './components/Footer'
 
 function App() {
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen bg-med-bg text-med-text">
       <Navbar />
       <main>
         <Hero />
         <RealtimeProductStage />
-        <HowItWorks />
         <ProblemSolution />
-        <ClinicalUseCases />
         <InstitutionalBenefits />
+        <TrustSection />
+        <HowItWorks />
+        <ClinicalUseCases />
         <MultiUserArchitecture />
         <FeaturesGrid />
         <AudiencePlans />
         <VideoDemoSection />
-        <TrustSection />
         <TestimonialsFaq />
         <ContactSection />
       </main>
       <a
         href="#contacto"
-        className="fixed bottom-4 left-4 right-4 z-40 rounded-xl border border-med-blue/35 bg-med-blue/15 px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-med-blue shadow-blue md:hidden"
+        className="fixed bottom-4 left-4 right-4 z-40 rounded-xl border border-med-blue/35 bg-med-bg/90 px-4 py-3 text-center text-xs font-extrabold uppercase tracking-wider text-med-cyan shadow-blue backdrop-blur-md md:hidden"
       >
         Solicitar demo institucional
       </a>
       <Footer />
     </div>
+    </MotionConfig>
   )
 }
 

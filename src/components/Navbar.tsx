@@ -11,11 +11,11 @@ export function Navbar() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-med-bg/85 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-med-bg/88 backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 md:px-8">
         <div className="flex items-center gap-2.5">
           <div className="h-2.5 w-2.5 rounded-full bg-med-ecg shadow-glow" />
-          <p className="text-sm font-black tracking-wide text-med-text md:text-base">Monitor ACLS</p>
+          <p className="text-sm font-extrabold tracking-wide text-med-text md:text-base">Monitor ACLS</p>
           <span className="hidden rounded-full border border-white/15 bg-white/[0.03] px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-med-muted md:inline-flex">
             Enterprise
           </span>
@@ -29,7 +29,7 @@ export function Navbar() {
           ))}
           <a
             href="#contacto"
-            className="rounded-lg border border-med-blue/35 bg-med-blue/10 px-3 py-2 text-[11px] font-black text-med-blue transition hover:bg-med-blue/20"
+            className="rounded-lg border border-med-blue/35 bg-med-blue/10 px-3 py-2 text-[11px] font-extrabold text-med-cyan transition hover:bg-med-blue/20"
           >
             Solicitar demo
           </a>
@@ -60,7 +60,7 @@ export function Navbar() {
             <a
               href="#contacto"
               onClick={() => setOpen(false)}
-              className="rounded-lg border border-med-blue/35 bg-med-blue/10 px-3 py-2 text-xs font-black uppercase tracking-wider text-med-blue"
+              className="rounded-lg border border-med-blue/35 bg-med-blue/10 px-3 py-2 text-xs font-extrabold uppercase tracking-wider text-med-cyan"
             >
               Solicitar demo
             </a>

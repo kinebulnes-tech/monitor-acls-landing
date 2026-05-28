@@ -18,14 +18,14 @@ const layers = [
 
 export function MultiUserArchitecture() {
   return (
-    <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8" id="arquitectura">
+    <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24" id="arquitectura">
       <SectionTitle
         eyebrow="Arquitectura multiusuario"
         title="Diseño operativo para entrenamiento en equipo"
         subtitle="Modelo claro de roles clínicos y académicos dentro de la misma plataforma."
       />
 
-      <div className="rounded-3xl border border-med-blue/25 bg-med-card p-5">
+      <div className="enterprise-surface rounded-[1.75rem] p-4 md:p-6">
         <div className="grid gap-3 md:grid-cols-3">
           {layers.map((layer, idx) => (
             <motion.article
@@ -34,10 +34,11 @@ export function MultiUserArchitecture() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.35, delay: idx * 0.05 }}
-              className="rounded-2xl border border-white/10 bg-black/25 p-4"
+              className="rounded-2xl border border-white/10 bg-black/25 p-5"
             >
-              <h3 className="text-lg font-black text-med-text">{layer.role}</h3>
-              <p className="mt-2 text-sm text-med-muted">{layer.description}</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-med-blue">Rol {idx + 1}</p>
+              <h3 className="mt-2 text-lg font-extrabold text-med-text">{layer.role}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-med-muted">{layer.description}</p>
             </motion.article>
           ))}
         </div>

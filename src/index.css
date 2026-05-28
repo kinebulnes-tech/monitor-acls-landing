@@ -6,6 +6,7 @@
   color: #e8f2ff;
   background: #06090f;
   font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-synthesis: none;
 }
 
 * {
@@ -31,6 +32,36 @@ html {
 
 a {
   color: inherit;
+}
+
+::selection {
+  background: rgba(62, 160, 255, 0.28);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(86, 214, 255, 0.85);
+  outline-offset: 3px;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.enterprise-surface {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.018)),
+    rgba(12, 20, 34, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.105);
+  box-shadow: 0 24px 80px -56px rgba(0, 0, 0, 0.9);
+}
+
+.clinical-hairline {
+  background: linear-gradient(90deg, transparent, rgba(86, 214, 255, 0.45), rgba(44, 255, 136, 0.22), transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -3,8 +3,8 @@ import { SectionTitle } from './SectionTitle'
 
 export function ContactSection() {
   return (
-    <section className="border-y border-white/10 bg-med-panel/60" id="contacto">
-      <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8">
+    <section className="border-y border-white/10 bg-med-panel/60 pb-16 md:pb-0" id="contacto">
+      <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <SectionTitle
           eyebrow="Contacto"
           title="Inicia evaluación institucional"
@@ -15,9 +15,9 @@ export function ContactSection() {
             initial={{ opacity: 0, x: -12 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            className="rounded-2xl border border-white/10 bg-med-card p-5"
+            className="enterprise-surface rounded-[1.5rem] p-5"
           >
-            <h3 className="text-lg font-black text-med-text">Canales directos</h3>
+            <h3 className="text-lg font-extrabold text-med-text">Canales directos</h3>
             <div className="mt-4 space-y-3">
               <a href="https://wa.me/56942139337" className="block rounded-xl border border-med-ecg/30 bg-med-ecg/10 p-3 text-sm font-semibold text-med-ecg transition hover:bg-med-ecg/20">
                 WhatsApp comercial: +56 9 4213 9337
@@ -35,9 +35,9 @@ export function ContactSection() {
             initial={{ opacity: 0, x: 12 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            className="rounded-2xl border border-white/10 bg-med-card p-5"
+            className="rounded-[1.5rem] border border-med-blue/25 bg-med-card/82 p-5 shadow-enterprise"
           >
-            <h3 className="text-lg font-black text-med-text">Formulario consultivo enterprise</h3>
+            <h3 className="text-lg font-extrabold text-med-text">Formulario consultivo enterprise</h3>
             <div className="mt-4 grid gap-3">
               <label className="grid gap-1.5 text-xs text-med-muted">
                 Nombre y cargo
@@ -93,7 +93,7 @@ export function ContactSection() {
               </label>
               <button
                 type="button"
-                className="rounded-xl border border-med-blue/35 bg-med-blue/10 px-4 py-2.5 text-sm font-black uppercase tracking-wider text-med-blue transition hover:bg-med-blue/20"
+                className="rounded-xl border border-med-blue/35 bg-med-blue/12 px-4 py-2.5 text-sm font-extrabold uppercase tracking-wider text-med-cyan transition hover:bg-med-blue/20"
               >
                 Solicitar evaluación
               </button>

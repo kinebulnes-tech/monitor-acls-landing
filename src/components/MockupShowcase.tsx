@@ -31,7 +31,7 @@ export function MockupShowcase() {
               loading="lazy"
               className="h-auto w-full rounded-xl border border-white/10 bg-black/40 object-cover"
             />
-            <h3 className="mt-3 text-lg font-black text-med-text">{card.title}</h3>
+            <h3 className="mt-3 text-lg font-extrabold text-med-text">{card.title}</h3>
             <p className="mt-1 text-sm text-med-muted">{card.description}</p>
           </motion.article>
         ))}
