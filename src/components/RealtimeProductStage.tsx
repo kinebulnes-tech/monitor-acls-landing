@@ -51,40 +51,40 @@ export function RealtimeProductStage() {
           </div>
         </motion.article>
 
-        <div className="space-y-3">
+        <div className="divide-y divide-white/8">
           {[
             {
-              step: '01',
+              n: '01',
               title: 'Control instructor',
               text: 'Cambio de ritmo, intervenciones, pausa/reanudación y cierre de caso sin fricción operacional.',
             },
             {
-              step: '02',
-              title: 'Vista alumno sincronizada',
+              n: '02',
+              title: 'Vista participante sincronizada',
               text: 'Seguimiento en tiempo real con dinámica docente guiada por el instructor.',
             },
             {
-              step: '03',
+              n: '03',
               title: 'Debrief documentado',
               text: 'Resumen de caso y exportación PDF para trazabilidad académica e institucional.',
             },
           ].map((item, idx) => (
-            <motion.article
+            <motion.div
               key={item.title}
               initial={{ opacity: 0, x: 10 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.35, delay: idx * 0.05 }}
-              className="group rounded-2xl border border-white/10 bg-med-card/75 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-med-blue/35 hover:bg-med-elevated/90"
+              className="grid grid-cols-[2rem_1fr] gap-4 py-5 first:pt-0 last:pb-0"
             >
-              <div className="flex items-start gap-3">
-                <span className="rounded-full border border-med-cyan/25 bg-med-blue/10 px-2 py-1 text-[10px] font-bold text-med-cyan">{item.step}</span>
-                <div>
-                  <h3 className="text-sm font-extrabold uppercase tracking-wider text-med-cyan">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-med-muted">{item.text}</p>
-                </div>
+              <span className="mt-0.5 select-none text-2xl font-black leading-none tabular-nums text-white/[0.08]">
+                {item.n}
+              </span>
+              <div>
+                <h3 className="text-sm font-extrabold text-med-text">{item.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-med-muted">{item.text}</p>
               </div>
-            </motion.article>
+            </motion.div>
           ))}
         </div>
       </div>
