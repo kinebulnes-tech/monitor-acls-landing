@@ -5,6 +5,7 @@ import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { ProblemSolution } from './components/ProblemSolution'
 import { Footer } from './components/Footer'
+import { VideoDemoSection } from './components/VideoDemoSection'
 
 const RealtimeProductStage = lazy(() => import('./components/RealtimeProductStage').then(m => ({ default: m.RealtimeProductStage })))
 const HowItWorks = lazy(() => import('./components/HowItWorks').then(m => ({ default: m.HowItWorks })))
@@ -31,6 +32,7 @@ function Landing() {
         <Suspense fallback={<SectionFallback />}>
           <RealtimeProductStage />
         </Suspense>
+        <VideoDemoSection />
         <Suspense fallback={<SectionFallback />}>
           <HowItWorks />
         </Suspense>
