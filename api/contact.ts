@@ -1,5 +1,17 @@
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
+const ALLOWED_ORIGIN = 'https://monitoracls.com'
+const DEV_ORIGIN = 'http://localhost:5173'
+
+const FIELD_MAX: Record<string, number> = {
+  name: 120,
+  institution: 200,
+  email: 254,
+  phone: 20,
+  institutionType: 60,
+  message: 2000,
+}
+
 declare const process: {
   env: Record<string, string | undefined>
 }
@@ -11,10 +23,15 @@ type ContactPayload = {
   phone?: unknown
   institutionType?: unknown
   message?: unknown
+  website?: unknown
 }
 
 function clean(value: unknown) {
   return typeof value === 'string' ? value.trim() : ''
+}
+
+function truncate(value: string, max: number) {
+  return value.length > max ? value.slice(0, max) : value
 }
 
 function escapeHtml(value: string) {
@@ -31,8 +48,19 @@ function json(res: any, status: number, payload: Record<string, unknown>) {
 }
 
 export default async function handler(req: any, res: any) {
+  const origin = req.headers['origin'] || ''
+  const allowedOrigin = origin === DEV_ORIGIN ? DEV_ORIGIN : ALLOWED_ORIGIN
+  res.setHeader('Access-Control-Allow-Origin', allowedOrigin)
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+  res.setHeader('Vary', 'Origin')
+
+  if (req.method === 'OPTIONS') {
+    return res.status(204).end()
+  }
+
   if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST')
+    res.setHeader('Allow', 'POST, OPTIONS')
     return json(res, 405, { ok: false, error: 'Method not allowed' })
   }
 
@@ -53,12 +81,18 @@ export default async function handler(req: any, res: any) {
   } catch {
     return json(res, 400, { ok: false, error: 'Invalid JSON payload.' })
   }
-  const name = clean(body.name)
-  const institution = clean(body.institution)
-  const email = clean(body.email)
-  const phone = clean(body.phone)
-  const institutionType = clean(body.institutionType)
-  const message = clean(body.message)
+
+  // Honeypot: bots fill this hidden field, humans leave it empty
+  if (clean(body.website)) {
+    return json(res, 200, { ok: true })
+  }
+
+  const name = truncate(clean(body.name), FIELD_MAX.name)
+  const institution = truncate(clean(body.institution), FIELD_MAX.institution)
+  const email = truncate(clean(body.email), FIELD_MAX.email)
+  const phone = truncate(clean(body.phone), FIELD_MAX.phone)
+  const institutionType = truncate(clean(body.institutionType), FIELD_MAX.institutionType)
+  const message = truncate(clean(body.message), FIELD_MAX.message)
 
   if (!name || !institution || !email || !phone || !institutionType) {
     return json(res, 400, { ok: false, error: 'Missing required fields.' })
@@ -96,12 +130,7 @@ export default async function handler(req: any, res: any) {
   })
 
   if (!response.ok) {
-    const errorText = await response.text()
-    return json(res, 502, {
-      ok: false,
-      error: 'Email provider rejected the request.',
-      details: errorText.slice(0, 400),
-    })
+    return json(res, 502, { ok: false, error: 'No se pudo enviar la solicitud. Intenta por WhatsApp o correo directo.' })
   }
 
   return json(res, 200, { ok: true })

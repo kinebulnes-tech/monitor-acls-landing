@@ -13,6 +13,7 @@ interface DemoForm {
   phone: string
   institutionType: string
   message: string
+  website: string
 }
 
 const initialForm: DemoForm = {
@@ -22,6 +23,7 @@ const initialForm: DemoForm = {
   phone: '',
   institutionType: '',
   message: '',
+  website: '',
 }
 
 export function ContactSection() {
@@ -197,6 +199,18 @@ export function ContactSection() {
                   onChange={(event) => updateField('message', event.target.value)}
                   placeholder="Describe tu programa, cantidad de alumnos o fecha estimada de inicio."
                   className="rounded-xl border border-white/10 bg-black/20 px-3 py-2.5 text-sm text-med-text outline-none placeholder:text-white/40 focus:border-med-blue/50"
+                />
+              </label>
+              {/* Honeypot: hidden from users, traps automated bots */}
+              <label aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
+                <span>Website</span>
+                <input
+                  name="website"
+                  type="text"
+                  value={form.website}
+                  onChange={(event) => updateField('website', event.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
                 />
               </label>
               {status === 'sent' ? (
