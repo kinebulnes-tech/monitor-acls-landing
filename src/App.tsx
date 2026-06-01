@@ -17,6 +17,9 @@ const TestimonialsFaq = lazy(() => import('./components/TestimonialsFaq').then(m
 const FaqSection = lazy(() => import('./components/FaqSection').then(m => ({ default: m.FaqSection })))
 const ContactSection = lazy(() => import('./components/ContactSection').then(m => ({ default: m.ContactSection })))
 const CheckoutPage = lazy(() => import('./pages/CheckoutPage').then(m => ({ default: m.CheckoutPage })))
+const PaymentSuccess = lazy(() => import('./pages/PaymentSuccess').then(m => ({ default: m.PaymentSuccess })))
+const PaymentFailure = lazy(() => import('./pages/PaymentFailure').then(m => ({ default: m.PaymentFailure })))
+const PaymentPending = lazy(() => import('./pages/PaymentPending').then(m => ({ default: m.PaymentPending })))
 
 function SectionFallback() {
   return <div className="min-h-[200px] bg-med-bg" aria-hidden="true" />
@@ -81,6 +84,30 @@ function App() {
           element={
             <Suspense fallback={<div className="min-h-screen bg-med-bg" />}>
               <CheckoutPage plan="institutional" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/pago/exitoso"
+          element={
+            <Suspense fallback={<div className="min-h-screen bg-med-bg" />}>
+              <PaymentSuccess />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/pago/fallido"
+          element={
+            <Suspense fallback={<div className="min-h-screen bg-med-bg" />}>
+              <PaymentFailure />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/pago/pendiente"
+          element={
+            <Suspense fallback={<div className="min-h-screen bg-med-bg" />}>
+              <PaymentPending />
             </Suspense>
           }
         />
