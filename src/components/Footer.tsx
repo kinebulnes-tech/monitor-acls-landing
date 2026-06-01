@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export function Footer() {
   return (
     <footer className="border-t border-white/8 bg-med-bg">
@@ -24,9 +26,9 @@ export function Footer() {
               </a>
             </div>
             <div className="flex flex-wrap gap-4">
-              <a href="#contacto" className="transition hover:text-white">Política de Privacidad</a>
+              <Link to="/privacidad" className="transition hover:text-white">Política de Privacidad</Link>
               <span aria-hidden="true">·</span>
-              <a href="#contacto" className="transition hover:text-white">Términos de Uso</a>
+              <Link to="/terminos" className="transition hover:text-white">Términos de Uso</Link>
             </div>
             <p className="text-white/35">Herramienta educativa. No dispositivo médico real.</p>
           </div>

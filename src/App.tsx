@@ -20,6 +20,8 @@ const CheckoutPage = lazy(() => import('./pages/CheckoutPage').then(m => ({ defa
 const PaymentSuccess = lazy(() => import('./pages/PaymentSuccess').then(m => ({ default: m.PaymentSuccess })))
 const PaymentFailure = lazy(() => import('./pages/PaymentFailure').then(m => ({ default: m.PaymentFailure })))
 const PaymentPending = lazy(() => import('./pages/PaymentPending').then(m => ({ default: m.PaymentPending })))
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })))
+const TermsPage = lazy(() => import('./pages/TermsPage').then(m => ({ default: m.TermsPage })))
 
 function SectionFallback() {
   return <div className="min-h-[200px] bg-med-bg" aria-hidden="true" />
@@ -108,6 +110,22 @@ function App() {
           element={
             <Suspense fallback={<div className="min-h-screen bg-med-bg" />}>
               <PaymentPending />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/privacidad"
+          element={
+            <Suspense fallback={<div className="min-h-screen bg-med-bg" />}>
+              <PrivacyPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/terminos"
+          element={
+            <Suspense fallback={<div className="min-h-screen bg-med-bg" />}>
+              <TermsPage />
             </Suspense>
           }
         />
