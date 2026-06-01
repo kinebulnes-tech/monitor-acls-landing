@@ -1,4 +1,4 @@
-import { useSearchParams, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function IconAlert() {
   return (
@@ -31,15 +31,7 @@ function Suggestion({ icon, text }: { icon: string; text: string }) {
   )
 }
 
-function parsePlanFromRef(ref: string): 'individual' | 'institutional' {
-  return ref.startsWith('institutional') ? 'institutional' : 'individual'
-}
-
 export function PaymentFailure() {
-  const [params] = useSearchParams()
-  const externalRef = params.get('external_reference') ?? ''
-  const retryPlan = parsePlanFromRef(externalRef)
-
   return (
     <div className="min-h-screen bg-med-bg text-med-text">
       <header className="sticky top-0 z-30 border-b border-white/10 bg-med-bg/90 backdrop-blur-md">
@@ -93,7 +85,7 @@ export function PaymentFailure() {
             />
             <Suggestion
               icon="💳"
-              text="Verifica que tu tarjeta o cuenta tenga fondos disponibles y esté habilitada para compras internacionales."
+              text="Verifica que tu tarjeta o cuenta tenga fondos disponibles y esté habilitada para compras."
             />
             <Suggestion
               icon="🏦"
@@ -110,13 +102,13 @@ export function PaymentFailure() {
         <div className="mb-7 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-xs text-med-muted">
           <span className="font-bold text-med-soft/80">Sin cargos pendientes</span>
           {' — '}
-          Mercado Pago no realizó ningún débito. Si ves un movimiento en tu estado de cuenta, desaparecerá automáticamente en 1–3 días hábiles.
+          Flow no realizó ningún débito. Si ves un movimiento en tu estado de cuenta, desaparecerá automáticamente en 1–3 días hábiles.
         </div>
 
         {/* CTAs */}
         <div className="space-y-2">
           <Link
-            to={`/checkout/${retryPlan}`}
+            to="/#planes"
             className="block w-full rounded-xl border border-med-red/50 bg-med-red/20 px-4 py-4 text-center text-sm font-extrabold uppercase tracking-wider text-med-red transition hover:bg-med-red/30 active:scale-[0.98]"
           >
             Reintentar pago

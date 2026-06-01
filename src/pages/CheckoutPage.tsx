@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { trackCommercialEvent, type BillingCycle } from '../lib/commercial'
 
@@ -16,7 +16,11 @@ interface PlanConfig {
   bgClass: string
   borderClass: string
   ctaClass: string
+  flowUrl: string
 }
+
+const FLOW_URL_INDIVIDUAL = 'https://www.flow.cl/btn.php?token=f68b9831f6f7465ac93eca63177883674fe8ace9'
+const FLOW_URL_INSTITUTIONAL = 'https://www.flow.cl/btn.php?token=o471a710f48e5d93dcecb4e1fb767189bd4b3534'
 
 const plans: Record<Plan, PlanConfig> = {
   individual: {
@@ -37,6 +41,7 @@ const plans: Record<Plan, PlanConfig> = {
     bgClass: 'bg-med-card/75',
     borderClass: 'border-white/10',
     ctaClass: 'border-med-ecg/50 bg-med-ecg/20 text-med-ecg hover:bg-med-ecg/30',
+    flowUrl: FLOW_URL_INDIVIDUAL,
   },
   institutional: {
     name: 'Institucional',
@@ -57,14 +62,8 @@ const plans: Record<Plan, PlanConfig> = {
     bgClass: 'bg-med-blue/10',
     borderClass: 'border-med-blue/40',
     ctaClass: 'border-med-blue/50 bg-med-blue/25 text-med-cyan hover:bg-med-blue/35',
+    flowUrl: FLOW_URL_INSTITUTIONAL,
   },
-}
-
-type ApiResponse = {
-  ok: boolean
-  init_point?: string
-  preference_id?: string
-  error?: string
 }
 
 function Check({ accent }: { accent: string }) {
@@ -82,68 +81,12 @@ interface Props {
 
 export function CheckoutPage({ plan }: Props) {
   const [billing, setBilling] = useState<BillingCycle>('monthly')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-
-  // Synchronous lock — prevents race conditions that useState alone cannot stop
-  const pendingRef = useRef(false)
 
   const config = plans[plan]
   const pricing = billing === 'monthly' ? config.monthly : config.annual
-  const ctaLabel = billing === 'monthly' ? 'Continuar al pago mensual' : 'Continuar al pago anual'
 
-  async function handlePay() {
-    // Synchronous guard: rejects any second call before React re-renders
-    if (pendingRef.current) return
-    pendingRef.current = true
-
-    setLoading(true)
-    setError(null)
-
+  function handleFlowClick() {
     trackCommercialEvent('click_buy_plan', { source: 'checkout_page', plan, billingCycle: billing })
-
-    const controller = new AbortController()
-    const timeoutId = setTimeout(() => controller.abort(), 15_000)
-
-    // Tracks whether we successfully initiated navigation to MP.
-    // If true, we intentionally leave loading=true so the button stays
-    // disabled during browser navigation — prevents a flash of re-enabled state.
-    let redirecting = false
-
-    try {
-      const res = await fetch('/api/create-preference', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan, billingCycle: billing }),
-        signal: controller.signal,
-      })
-
-      const data = await res.json() as ApiResponse
-
-      if (!data.ok || typeof data.init_point !== 'string' || !data.init_point.startsWith('https://')) {
-        setError('No pudimos iniciar el pago. Intenta nuevamente.')
-        return
-      }
-
-      redirecting = true
-      window.location.href = data.init_point
-
-    } catch (err) {
-      const isTimeout = err instanceof DOMException && err.name === 'AbortError'
-      setError(
-        isTimeout
-          ? 'La solicitud tardó demasiado. Verifica tu conexión e intenta nuevamente.'
-          : 'No pudimos iniciar el pago. Intenta nuevamente.'
-      )
-    } finally {
-      clearTimeout(timeoutId)
-      // Only reset state if we are NOT navigating away.
-      // If redirecting, keep loading=true to prevent button flash during navigation.
-      if (!redirecting) {
-        setLoading(false)
-        pendingRef.current = false
-      }
-    }
   }
 
   return (
@@ -182,17 +125,16 @@ export function CheckoutPage({ plan }: Props) {
           <p className="mt-0.5 text-xs text-med-muted">{config.audience}</p>
         </div>
 
-        {/* Billing toggle */}
+        {/* Billing toggle — informativo */}
         <div className={`mb-4 rounded-2xl border ${config.borderClass} ${config.bgClass} p-5`}>
           <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-med-muted">
-            Elige modalidad de pago
+            Referencia de precios
           </p>
           <div className="flex gap-2">
             <button
               type="button"
               onClick={() => setBilling('monthly')}
-              disabled={loading}
-              className={`flex-1 rounded-xl border px-4 py-3 text-sm font-extrabold uppercase tracking-wider transition disabled:opacity-50 ${
+              className={`flex-1 rounded-xl border px-4 py-3 text-sm font-extrabold uppercase tracking-wider transition ${
                 billing === 'monthly'
                   ? 'border-white/20 bg-white/10 text-med-text'
                   : 'border-white/10 text-med-muted hover:text-med-soft'
@@ -203,8 +145,7 @@ export function CheckoutPage({ plan }: Props) {
             <button
               type="button"
               onClick={() => setBilling('annual')}
-              disabled={loading}
-              className={`flex-1 rounded-xl border px-4 py-3 text-sm font-extrabold uppercase tracking-wider transition disabled:opacity-50 ${
+              className={`flex-1 rounded-xl border px-4 py-3 text-sm font-extrabold uppercase tracking-wider transition ${
                 billing === 'annual'
                   ? 'border-white/20 bg-white/10 text-med-text'
                   : 'border-white/10 text-med-muted hover:text-med-soft'
@@ -217,7 +158,6 @@ export function CheckoutPage({ plan }: Props) {
             </button>
           </div>
 
-          {/* Dynamic price */}
           <div className="mt-4 flex items-end gap-2 border-t border-white/10 pt-4">
             <p className="text-5xl font-extrabold text-med-text">{pricing.price}</p>
             <p className="mb-1.5 text-sm text-med-muted">{pricing.period}</p>
@@ -242,24 +182,17 @@ export function CheckoutPage({ plan }: Props) {
 
         {/* CTA */}
         <div className="space-y-2">
-          <button
-            type="button"
-            onClick={handlePay}
-            disabled={loading}
-            aria-busy={loading}
-            className={`w-full rounded-xl border px-4 py-4 text-center text-sm font-extrabold uppercase tracking-wider transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 ${config.ctaClass}`}
+          <a
+            href={config.flowUrl}
+            onClick={handleFlowClick}
+            className={`block w-full rounded-xl border px-4 py-4 text-center text-sm font-extrabold uppercase tracking-wider transition active:scale-[0.98] ${config.ctaClass}`}
           >
-            {loading ? 'Conectando con Mercado Pago…' : ctaLabel}
-          </button>
+            {plan === 'individual' ? 'Pagar Plan Individual con Flow' : 'Pagar Plan Empresas con Flow'}
+          </a>
 
-          {error && (
-            <div
-              role="alert"
-              className="rounded-xl border border-med-red/30 bg-med-red/10 px-4 py-3 text-center text-xs text-med-red"
-            >
-              {error}
-            </div>
-          )}
+          <p className="text-center text-[10px] leading-relaxed text-med-muted">
+            Pago seguro procesado por Flow. La activación de licencia es manual posterior a la verificación.
+          </p>
 
           <a
             href="/#contacto"

@@ -3,6 +3,7 @@ export type CommercialEventName =
   | 'submit_demo'
   | 'click_simulator'
   | 'click_buy_plan'
+  | 'click_plans'
   | 'click_request_quote'
 
 export type BillingCycle = 'monthly' | 'annual'

@@ -11,7 +11,7 @@
         { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'sha256-qjvhfE7+v8FafFEOCUcYW1PRe+Anr770wJWxTdXeL9g='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.mercadopago.com; media-src 'self'; frame-src 'none' https://www.mercadopago.com https://www.mercadopago.com.ar https://www.mercadopago.cl https://www.mercadopago.com.mx https://www.mercadopago.com.co; object-src 'none'; base-uri 'self'; form-action 'self' https://www.mercadopago.com https://www.mercadopago.com.ar https://www.mercadopago.cl https://www.mercadopago.com.mx https://www.mercadopago.com.co; frame-ancestors 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'sha256-qjvhfE7+v8FafFEOCUcYW1PRe+Anr770wJWxTdXeL9g='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; media-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://www.flow.cl; frame-ancestors 'none'; upgrade-insecure-requests"
         },
         { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
         { "key": "Cross-Origin-Resource-Policy", "value": "same-origin" }

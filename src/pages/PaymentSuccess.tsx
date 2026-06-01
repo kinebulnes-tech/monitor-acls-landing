@@ -1,4 +1,4 @@
-import { useSearchParams, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function IconCheck() {
   return (
@@ -33,21 +33,7 @@ function Step({ number, text }: { number: string; text: string }) {
   )
 }
 
-function parsePlanLabel(ref: string): string {
-  const parts = ref.split('-')
-  if (parts.length < 2) return ''
-  const plan = parts[0] === 'individual' ? 'Individual' : parts[0] === 'institutional' ? 'Institucional' : ''
-  const cycle = parts[1] === 'monthly' ? 'Mensual' : parts[1] === 'annual' ? 'Anual' : ''
-  if (!plan) return ''
-  return cycle ? `${plan} · ${cycle}` : plan
-}
-
 export function PaymentSuccess() {
-  const [params] = useSearchParams()
-  const externalRef = params.get('external_reference') ?? ''
-  const paymentId = params.get('payment_id') ?? params.get('collection_id') ?? ''
-  const planLabel = parsePlanLabel(externalRef)
-
   return (
     <div className="min-h-screen bg-med-bg text-med-text">
       <header className="sticky top-0 z-30 border-b border-white/10 bg-med-bg/90 backdrop-blur-md">
@@ -72,69 +58,58 @@ export function PaymentSuccess() {
             <IconCheck />
           </div>
           <h1 className="text-2xl font-extrabold text-med-ecg md:text-3xl">
-            Pago recibido
+            Gracias por tu compra
           </h1>
-          <p className="mt-2 text-sm text-med-soft/90">
-            {planLabel
-              ? `Plan ${planLabel} — tu acceso está siendo activado.`
-              : 'Tu pago fue procesado correctamente.'}
+          <p className="mt-2 text-sm leading-relaxed text-med-soft/90">
+            Tu pago fue procesado por Flow. La activación de tu licencia es manual y se realiza una vez verificado el pago.
           </p>
-          {paymentId && (
-            <p className="mt-1 font-mono text-[11px] text-med-muted">
-              Ref. {paymentId}
-            </p>
-          )}
         </div>
 
         {/* Decorative hairline */}
         <div className="clinical-hairline mb-7 h-px w-full" aria-hidden="true" />
 
-        {/* Next steps */}
+        {/* Manual activation instructions */}
         <div className="mb-5 rounded-2xl border border-med-ecg/20 bg-med-ecg/5 p-5">
           <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-med-ecg/70">
-            Próximos pasos
+            Para activar tu acceso
+          </p>
+          <p className="mb-4 text-sm leading-relaxed text-med-soft/90">
+            Envía un correo a{' '}
+            <a href="mailto:contacto@monitoracls.com" className="font-semibold text-med-ecg underline">
+              contacto@monitoracls.com
+            </a>{' '}
+            con los siguientes datos:
           </p>
           <ol className="space-y-3">
-            <Step
-              number="1"
-              text="Recibirás un correo de confirmación de Mercado Pago con el comprobante del pago."
-            />
-            <Step
-              number="2"
-              text="Nuestro equipo habilitará tu acceso al simulador en las próximas horas hábiles."
-            />
-            <Step
-              number="3"
-              text="Te enviaremos tus credenciales de acceso al correo registrado en la compra."
-            />
-            <Step
-              number="4"
-              text="Si no recibes el acceso en 24 h, escríbenos directamente y lo resolvemos."
-            />
+            <Step number="1" text="Comprobante de pago emitido por Flow." />
+            <Step number="2" text="Nombre completo." />
+            <Step number="3" text="Correo de contacto." />
+            <Step number="4" text="Plan contratado (Individual o Institucional)." />
+            <Step number="5" text="Institución, si corresponde." />
           </ol>
         </div>
 
-        {/* Activation note — prepared for future automatic license activation */}
+        {/* Activation note */}
         <div className="mb-7 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-xs text-med-muted">
-          <span className="font-bold text-med-soft/80">Activación automática</span>
+          <span className="font-bold text-med-soft/80">Activación manual</span>
           {' — '}
-          Estamos implementando activación instantánea de licencias. Por ahora, el equipo la activa manualmente dentro del horario laboral (lun–vie, 9–18 h Chile).
+          La licencia será generada por nuestro equipo una vez verificado el pago. Tiempo estimado: dentro del horario laboral (lun–vie, 9–18 h Chile).
         </div>
 
         {/* CTAs */}
         <div className="space-y-2">
+          <a
+            href="mailto:contacto@monitoracls.com?subject=Activación%20de%20licencia%20Monitor%20ACLS"
+            className="block w-full rounded-xl border border-med-ecg/50 bg-med-ecg/20 px-4 py-4 text-center text-sm font-extrabold uppercase tracking-wider text-med-ecg transition hover:bg-med-ecg/30 active:scale-[0.98]"
+          >
+            Enviar comprobante por correo
+          </a>
           <Link
             to="/"
-            className="block w-full rounded-xl border border-med-ecg/50 bg-med-ecg/20 px-4 py-4 text-center text-sm font-extrabold uppercase tracking-wider text-med-ecg transition hover:bg-med-ecg/30 active:scale-[0.98]"
+            className="block w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center text-xs font-extrabold uppercase tracking-wider text-med-muted transition hover:text-med-soft"
           >
             Volver al inicio
           </Link>
-          <a
-            href="mailto:contacto@monitoracls.com"
-            className="block w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center text-xs font-extrabold uppercase tracking-wider text-med-muted transition hover:text-med-soft"
-          >
-            Contactar soporte
-          </a>
         </div>
 
         <p className="mt-6 text-center text-xs text-med-muted">

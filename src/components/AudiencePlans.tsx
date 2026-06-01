@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { SectionTitle } from './SectionTitle'
 import { trackCommercialEvent } from '../lib/commercial'
+
+const FLOW_URL_INDIVIDUAL = 'https://www.flow.cl/btn.php?token=f68b9831f6f7465ac93eca63177883674fe8ace9'
+const FLOW_URL_INSTITUTIONAL = 'https://www.flow.cl/btn.php?token=o471a710f48e5d93dcecb4e1fb767189bd4b3534'
 
 const individualPoints = [
   'Simulación ACLS y BLS completa',
@@ -85,13 +87,16 @@ export function AudiencePlans() {
             </ul>
 
             <div className="mt-5 space-y-2">
-              <Link
-                to="/checkout/individual"
+              <a
+                href={FLOW_URL_INDIVIDUAL}
                 onClick={() => trackCommercialEvent('click_buy_plan', { source: 'plans', plan: 'individual' })}
                 className="block w-full rounded-xl border border-med-ecg/40 bg-med-ecg/15 px-4 py-3 text-center text-sm font-extrabold uppercase tracking-wider text-med-ecg transition hover:bg-med-ecg/25 active:scale-[0.98]"
               >
-                Comprar plan Individual
-              </Link>
+                Pagar Plan Individual con Flow
+              </a>
+              <p className="text-center text-[10px] leading-relaxed text-med-muted">
+                Pago seguro procesado por Flow. La activación de licencia es manual posterior a la verificación.
+              </p>
               <a
                 href="#contacto"
                 onClick={() => trackCommercialEvent('click_demo', { source: 'plans_secondary', plan: 'individual' })}
@@ -142,13 +147,16 @@ export function AudiencePlans() {
             </ul>
 
             <div className="mt-5 space-y-2">
-              <Link
-                to="/checkout/institutional"
+              <a
+                href={FLOW_URL_INSTITUTIONAL}
                 onClick={() => trackCommercialEvent('click_buy_plan', { source: 'plans', plan: 'institutional' })}
                 className="block w-full rounded-xl border border-med-blue/40 bg-med-blue/20 px-4 py-3 text-center text-sm font-extrabold uppercase tracking-wider text-med-cyan transition hover:bg-med-blue/30 active:scale-[0.98]"
               >
-                Comprar plan Institucional
-              </Link>
+                Pagar Plan Empresas con Flow
+              </a>
+              <p className="text-center text-[10px] leading-relaxed text-med-muted">
+                Pago seguro procesado por Flow. La activación de licencia es manual posterior a la verificación.
+              </p>
               <a
                 href="#contacto"
                 onClick={() => trackCommercialEvent('click_demo', { source: 'plans_secondary', plan: 'institutional' })}
