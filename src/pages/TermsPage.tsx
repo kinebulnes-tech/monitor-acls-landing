@@ -37,7 +37,20 @@ export function TermsPage() {
 
         <div className="clinical-hairline mb-8 h-px w-full" aria-hidden="true" />
 
-        <Section title="1. Descripción del servicio">
+        <Section title="1. Aceptación">
+          <p>
+            Al realizar una compra en <strong className="text-med-soft">monitoracls.com</strong> o al
+            utilizar el servicio, el usuario acepta íntegramente estos Términos y Condiciones. Si no
+            estás de acuerdo con alguno de ellos, no realices la contratación.
+          </p>
+          <p className="text-med-muted/70">
+            Estos términos se rigen por la{' '}
+            <span className="font-semibold text-med-soft/80">Ley N° 19.496</span> sobre Protección
+            de los Derechos de los Consumidores y demás normativa vigente en Chile.
+          </p>
+        </Section>
+
+        <Section title="2. Descripción del servicio">
           <p>
             Monitor ACLS es una plataforma de simulación clínica educativa orientada al entrenamiento
             en protocolos ACLS (Advanced Cardiovascular Life Support) y BLS (Basic Life Support).
@@ -46,7 +59,7 @@ export function TermsPage() {
           </p>
         </Section>
 
-        <Section title="2. Uso educativo — limitación de responsabilidad">
+        <Section title="3. Uso educativo — limitación de responsabilidad">
           <p>
             Monitor ACLS es una herramienta exclusivamente educativa y de entrenamiento. No es un
             dispositivo médico certificado ni reemplaza la atención clínica real.
@@ -58,11 +71,13 @@ export function TermsPage() {
           </p>
           <p>
             Monitor ACLS no asume responsabilidad por decisiones clínicas reales tomadas como
-            resultado del uso de esta plataforma.
+            resultado del uso de esta plataforma. La responsabilidad máxima de Monitor ACLS ante
+            el usuario, bajo cualquier circunstancia, no excederá el monto pagado por la
+            licencia contratada.
           </p>
         </Section>
 
-        <Section title="3. Licencias de uso">
+        <Section title="4. Licencias de uso">
           <p>
             Al contratar un plan, Monitor ACLS otorga al usuario o institución una licencia de uso
             personal, no exclusiva e intransferible para acceder al simulador según las condiciones
@@ -81,38 +96,67 @@ export function TermsPage() {
           </ul>
         </Section>
 
-        <Section title="4. Proceso de activación">
+        <Section title="5. Proceso de activación">
           <p>
             La activación de licencias es <span className="font-semibold text-med-soft">manual</span>.
-            Una vez realizado el pago mediante Flow, el usuario debe enviar a{' '}
-            <a href="mailto:contacto@monitoracls.com" className="text-med-soft underline">contacto@monitoracls.com</a>:
+            Una vez realizado el pago mediante Flow, el usuario debe completar el formulario de
+            activación disponible en la página de confirmación de pago, o bien enviar la
+            información a{' '}
+            <a href="mailto:contacto@monitoracls.com" className="text-med-soft underline">
+              contacto@monitoracls.com
+            </a>:
           </p>
           <ul className="ml-4 space-y-1.5 list-disc">
-            <li>Comprobante de pago emitido por Flow</li>
             <li>Nombre completo</li>
             <li>Correo de contacto</li>
             <li>Plan contratado</li>
+            <li>Número de operación o referencia de pago proporcionado por Flow</li>
             <li>Institución, si corresponde</li>
           </ul>
           <p>
             La licencia será generada por el equipo de Monitor ACLS dentro del horario laboral
-            (lunes a viernes, 9–18 h, hora Chile) una vez verificado el pago.
+            (lunes a viernes, 9–18 h, hora Chile) una vez verificado el pago en Flow.
           </p>
         </Section>
 
-        <Section title="5. Pagos">
+        <Section title="6. Pagos">
           <p>
-            Los pagos son procesados por Flow, plataforma de pagos independiente. Monitor ACLS no
-            almacena datos de tarjetas ni medios de pago. Los precios están expresados en dólares
-            estadounidenses (USD) e incluyen acceso al simulador según el plan elegido.
+            Los pagos son procesados por Flow (<span className="text-med-soft/80">www.flow.cl</span>),
+            plataforma de pagos independiente con sus propias políticas de seguridad. Monitor ACLS
+            no almacena datos de tarjetas ni medios de pago.
           </p>
           <p>
-            Los precios pueden actualizarse. Las licencias activas mantienen las condiciones del
-            plan contratado durante su vigencia.
+            Los precios están expresados en dólares estadounidenses (USD) e incluyen acceso al
+            simulador según el plan elegido. Los precios pueden actualizarse; las licencias activas
+            mantienen las condiciones del plan contratado durante su vigencia.
           </p>
         </Section>
 
-        <Section title="6. Prohibiciones de uso">
+        <Section title="7. Derecho a retracto y política de reembolsos">
+          <p>
+            Conforme al <span className="font-semibold text-med-soft/90">artículo 3 bis de la
+            Ley N° 19.496</span>, el consumidor tiene derecho a retractarse de la compra dentro
+            de <span className="font-semibold text-med-soft/90">10 días hábiles</span> contados
+            desde la contratación, siempre que no haya hecho uso del servicio.
+          </p>
+          <p>
+            El derecho a retracto <span className="font-semibold text-med-soft/90">no aplica</span>{' '}
+            una vez que se han entregado las credenciales de acceso al simulador, ya que el servicio
+            digital ha comenzado a ejecutarse a solicitud expresa del usuario.
+          </p>
+          <p>
+            Para solicitar un reembolso dentro del plazo legal, envía tu solicitud a{' '}
+            <a href="mailto:contacto@monitoracls.com" className="text-med-soft underline">
+              contacto@monitoracls.com
+            </a>{' '}
+            indicando el número de operación Flow. El reembolso se tramita a través del mismo medio
+            de pago utilizado en un plazo de hasta{' '}
+            <span className="font-semibold text-med-soft/90">15 días hábiles</span>, sujeto a
+            confirmación de Flow.
+          </p>
+        </Section>
+
+        <Section title="8. Prohibiciones de uso">
           <p>Está expresamente prohibido:</p>
           <ul className="ml-4 space-y-1.5 list-disc">
             <li>Redistribuir, revender o sublicenciar el acceso a terceros</li>
@@ -120,9 +164,13 @@ export function TermsPage() {
             <li>Reproducir, modificar o extraer contenido del simulador sin autorización escrita</li>
             <li>Usar la plataforma con fines distintos al entrenamiento educativo</li>
           </ul>
+          <p>
+            El incumplimiento de estas prohibiciones faculta a Monitor ACLS para suspender o
+            cancelar la licencia sin reembolso.
+          </p>
         </Section>
 
-        <Section title="7. Propiedad intelectual">
+        <Section title="9. Propiedad intelectual">
           <p>
             Todo el contenido de Monitor ACLS — incluyendo el simulador, protocolos, interfaz,
             textos y materiales — es propiedad de Monitor ACLS o sus licenciantes. Queda prohibida
@@ -130,22 +178,36 @@ export function TermsPage() {
           </p>
         </Section>
 
-        <Section title="8. Modificaciones del servicio">
+        <Section title="10. Fuerza mayor">
+          <p>
+            Monitor ACLS no será responsable por incumplimientos o retrasos causados por hechos
+            fuera de su control razonable, incluyendo fallas de infraestructura de terceros, cortes
+            de conectividad, desastres naturales, actos de autoridad o cualquier otro evento de
+            fuerza mayor. Ante tales circunstancias, el plazo de cumplimiento se extenderá
+            proporcionalmente.
+          </p>
+        </Section>
+
+        <Section title="11. Modificaciones del servicio">
           <p>
             Monitor ACLS se reserva el derecho de modificar, actualizar o descontinuar funciones
-            del servicio, notificando a los usuarios con licencias activas con anticipación
-            razonable cuando el cambio sea relevante.
+            del servicio, notificando a los usuarios con licencias activas con al menos{' '}
+            <span className="font-semibold text-med-soft/90">15 días de anticipación</span> cuando
+            el cambio sea relevante o afecte las condiciones contratadas.
           </p>
         </Section>
 
-        <Section title="9. Ley aplicable">
+        <Section title="12. Ley aplicable y tribunales competentes">
           <p>
             Estos términos se rigen por la legislación vigente en la República de Chile. Cualquier
-            disputa será sometida a los tribunales ordinarios de justicia correspondientes.
+            disputa derivada de estos términos será sometida a los{' '}
+            <span className="font-semibold text-med-soft/90">tribunales ordinarios de justicia
+            de Santiago, Chile</span>, salvo que la normativa de protección al consumidor disponga
+            un fuero diferente en beneficio del usuario.
           </p>
         </Section>
 
-        <Section title="10. Contacto">
+        <Section title="13. Contacto">
           <p>
             Para consultas sobre estos términos, escríbenos a{' '}
             <a href="mailto:contacto@monitoracls.com" className="text-med-soft underline">
