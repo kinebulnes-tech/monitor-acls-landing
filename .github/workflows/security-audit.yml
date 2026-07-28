@@ -21,11 +21,11 @@ jobs:
     name: npm audit
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "22"
           cache: npm
 
       - name: Install dependencies
@@ -37,5 +37,7 @@ jobs:
         run: npm audit --audit-level=high --omit=dev
 
       - name: Full audit report (informational)
-        # Always runs so the full picture is visible in the logs
+        # if: always() so this still runs (and stays visible in the logs)
+        # even when the audit step above fails the job
+        if: always()
         run: npm audit --omit=dev || true
