@@ -36,24 +36,24 @@ function PlayButton({ source, label = 'Jugar ahora' }: { source: string; label?:
 
 const MECHANICS = [
   {
-    title: 'El reloj no se detiene',
-    text: 'Cada acción consume segundos y, mientras se ejecuta, no se puede hacer otra cosa. Los signos vitales se conocen recién después de evaluarlos, y el paciente mejora o empeora según lo que se hace y lo que se deja de hacer.',
+    title: 'El tiempo corre de verdad',
+    text: 'Evaluar la respiración toma segundos; llamar al 131, también. Mientras haces una cosa no puedes hacer otra, y el paciente sigue su curso. Un motor fisiológico calcula su pulso, su saturación y su conciencia según lo que hiciste y lo que no.',
   },
   {
-    title: 'Compresiones al ritmo',
-    text: 'La RCP se realiza tocando la pantalla o la barra espaciadora. Un metrónomo marca 110 por minuto y el panel muestra la frecuencia y la fracción de compresión. Cuando hay alguien a quien pedirle relevo, el cansancio también cuenta: después de unos dos minutos las compresiones pierden profundidad.',
+    title: 'La RCP la haces tú',
+    text: 'Comprimes tocando la pantalla o la barra espaciadora, al ritmo del metrónomo. El juego mide tu frecuencia y cuánto tiempo pasó el paciente sin compresiones. Si no pides relevo, a los dos minutos tus brazos se cansan y las compresiones pierden profundidad.',
   },
   {
-    title: 'El DEA funciona como el equipo real',
-    text: 'Hay que encenderlo, pegar los parches y seguir sus instrucciones de voz. Si alguien toca al paciente durante el análisis, el equipo lo detecta y el análisis se reinicia.',
+    title: 'El DEA da las órdenes',
+    text: 'Lo enciendes, pegas los parches y haces lo que dice. Si alguien toca al paciente mientras analiza, el equipo se detiene y vuelve a empezar.',
   },
   {
-    title: 'Decisiones sin pistas',
-    text: 'Todas las acciones del caso están disponibles desde el inicio. Elegir una que no corresponde cuesta tiempo, igual que en la calle. El diagnóstico no aparece escrito: hay que reconocerlo a partir de lo que se observa.',
+    title: 'Nada viene marcado',
+    text: 'Todas las acciones están disponibles desde el primer segundo, también las equivocadas, y elegir mal cuesta tiempo. Nadie te dice qué tiene el paciente; lo descubres mirando la escena, preguntando y evaluando.',
   },
   {
-    title: 'Entrega y revisión',
-    text: 'Al entregar al paciente, quien lo recibe pregunta por datos de esa misma partida: la hora del torniquete, cuántas descargas se dieron o cuánto duró la crisis. La revisión final califica cada paso y cita la guía que lo respalda.',
+    title: 'Al entregarlo, te preguntan',
+    text: 'Cuando llega la ambulancia, quien recibe al paciente te pregunta por lo que pasó en tu partida: a qué hora apretaste el torniquete, cuántas descargas dio el DEA, cuánto duró la crisis. Después, la revisión califica cada paso y te muestra en qué guía se apoya.',
   },
 ]
 
@@ -62,13 +62,13 @@ const MODES = [
     name: 'Carrera',
     image: '/codigo-vital/mapa.webp',
     alt: 'Mapa de la carrera con los cinco casos del primer turno unidos por una ruta',
-    text: 'Cuatro turnos que siguen el crecimiento del rol: de franco, sin más equipo que las propias manos; en servicio, con una ambulancia básica completa; en un equipo avanzado, liderando un paro con monitor y fármacos; y como jefe de escena, clasificando víctimas con START. Cada turno se abre con dos estrellas en tres casos del anterior.',
+    text: 'Empiezas de franco, con tus manos y lo que haya en la escena. Después subes a la ambulancia básica, lideras un paro con monitor y fármacos, y terminas como jefe de escena clasificando víctimas con START. Para abrir cada turno necesitas dos estrellas en tres casos del anterior.',
   },
   {
     name: 'Modo clase',
     image: '/codigo-vital/clase.webp',
     alt: 'Pregunta de alternativas del modo clase durante un paro presenciado',
-    text: 'Todos los casos quedan abiertos y la pantalla está pensada para proyectar. La simulación se detiene en las decisiones clave con una pregunta de alternativas, muestra la respuesta correcta y la guía que la sustenta, y cada prólogo termina con una pregunta para abrir la conversación con el curso.',
+    text: 'Todos los casos abiertos y una pantalla pensada para el proyector. En los momentos clave el caso se detiene con una pregunta de alternativas para discutir con el curso, y después muestra la respuesta con su fundamento. El prólogo se puede pausar y retroceder, y termina con una pregunta para abrir la conversación.',
   },
 ]
 
@@ -92,19 +92,19 @@ const TOPICS = [
 ]
 
 const TECH = [
-  ['Dónde se juega', 'En el navegador de un computador, un celular, una tablet o un proyector. Se puede instalar como aplicación.'],
-  ['Conexión', 'Después de la primera carga funciona sin internet, también en un cuartel o en un traslado sin señal.'],
-  ['Cuenta', 'No requiere registro. El progreso se guarda solo en el dispositivo y no se envía a ningún servidor.'],
-  ['Voz y sonido', 'Narración en español con las voces instaladas en el equipo, sonido clínico y música que acompaña la gravedad del caso. Las voces disponibles varían según el dispositivo.'],
-  ['Accesibilidad', 'Alto contraste, control completo con teclado, respeto de la preferencia de reducir movimiento y vibración opcional en el celular.'],
-  ['Costo', 'Gratuito.'],
+  ['Dónde se juega', 'En el navegador del computador, el celular o la tablet, y en el proyector de la sala. También se instala como aplicación.'],
+  ['Conexión', 'Solo para abrirlo la primera vez. Después funciona sin internet, también en el cuartel o en un traslado sin señal.'],
+  ['Cuenta', 'No hay registro. Tu progreso se guarda en tu dispositivo y no se envía a ningún lado.'],
+  ['Voz y sonido', 'Los personajes hablan con las voces instaladas en tu equipo, así que suenan distinto según el dispositivo. Juégalo con audífonos o parlante: el sonido es parte del caso.'],
+  ['Accesibilidad', 'Alto contraste, control completo con teclado, menos movimiento si tu equipo lo pide y vibración opcional en el celular.'],
+  ['Costo', 'Gratis y sin publicidad.'],
 ]
 
 export function CodigoVitalPage() {
   useEffect(() => {
     window.scrollTo(0, 0)
     const previous = document.title
-    document.title = 'Código Vital · Juego gratuito de emergencias prehospitalarias · Monitor ACLS'
+    document.title = 'Código Vital · Juego gratuito de emergencias · Monitor ACLS'
     return () => {
       document.title = previous
     }
@@ -143,19 +143,22 @@ export function CodigoVitalPage() {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-med-red/35 bg-med-red/10 px-3.5 py-1.5">
                 <span className="h-2 w-2 rounded-full bg-med-red" />
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-med-soft">Juego gratuito · Atención prehospitalaria</span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-med-soft">Gratis · En el navegador · Sin registro</span>
               </div>
               <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">Código Vital</h1>
+              <p className="max-w-xl text-2xl font-extrabold leading-snug text-med-text md:text-3xl">
+                Un hombre cae en la feria. <span className="text-med-red">Tienes segundos para saber si respira.</span>
+              </p>
               <p className="max-w-xl text-base leading-8 text-med-soft/90 md:text-lg">
-                Un juego de casos prehospitalarios en tiempo real. Quien juega llega a la escena, evalúa, decide y actúa mientras el paciente evoluciona según lo que hace. Al terminar, una revisión detallada muestra qué se hizo bien, qué faltó y en qué guía se sustenta cada punto.
+                Código Vital es un juego de emergencias que se juega contra el reloj. Cada acción toma los segundos que toma en la calle, lo que dejas de hacer también cuenta y el paciente mejora o empeora según tus decisiones. Al final ves, paso a paso, qué lo ayudó y qué lo puso en riesgo.
               </p>
               <p className="max-w-xl text-sm leading-7 text-med-muted">
-                Está desarrollado en Bulnes para la formación de bomberos, rescatistas y equipos de salud, y para cualquier persona que quiera aprender a responder mejor ante una emergencia.
+                Empiezas de franco, sin más equipo que tus manos, y terminas a cargo de una micro volcada con víctimas por todos lados. Sacar tres estrellas en los dieciséis casos no es fácil.
               </p>
               <div className="flex flex-wrap items-center gap-3">
                 <PlayButton source="page_hero" />
                 <a href="#clases" className="rounded-xl border border-med-blue/40 bg-med-blue/10 px-5 py-3 text-sm font-extrabold uppercase tracking-wider text-med-cyan transition duration-300 hover:-translate-y-0.5 hover:bg-med-blue/20">
-                  Uso en clases
+                  Para instructores
                 </a>
               </div>
               <ul className="grid max-w-xl grid-cols-2 gap-3 pt-2 sm:grid-cols-4">
@@ -180,12 +183,12 @@ export function CodigoVitalPage() {
           <div className="grid items-start gap-10 md:grid-cols-[1.05fr_0.95fr]">
             <div className="md:sticky md:top-24">
               <Eyebrow>Cómo se juega</Eyebrow>
-              <h2 className="text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">Cada segundo tiene un costo</h2>
+              <h2 className="text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">Nadie te va a decir qué hacer</h2>
               <p className="mt-4 max-w-xl text-sm leading-7 text-med-muted md:text-base">
-                Las acciones toman el tiempo que toman en la realidad, y el estado del paciente lo calcula un motor fisiológico común a todos los casos.
+                Tienes la escena, al paciente y un reloj que no se detiene. Los signos vitales los conoces evaluando, y cada minuto que pasa se nota en el paciente.
               </p>
               <div className="mt-8">
-                <Shot src="/codigo-vital/rcp.webp" alt="Caso en curso: reanimación en la feria con el panel de compresiones y el de acciones" caption="Paro presenciado en la feria: compresiones en rango, testigo en camino con el DEA y SAMU a menos de cinco minutos." />
+                <Shot src="/codigo-vital/rcp.webp" alt="Caso en curso: reanimación en la feria con el panel de compresiones y el de acciones" caption="Minuto uno en la feria: compresiones en rango, la vecina salió a buscar el DEA y la ambulancia está a menos de cinco minutos." />
               </div>
             </div>
             <ol className="space-y-4">
@@ -202,25 +205,25 @@ export function CodigoVitalPage() {
         <section className="border-y border-white/10 bg-med-bg2">
           <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-20">
             <div className="max-w-3xl">
-              <Eyebrow>Antes y después del caso</Eyebrow>
-              <h2 className="text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">La historia también es parte del entrenamiento</h2>
+              <Eyebrow>Antes y después</Eyebrow>
+              <h2 className="text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">Cada paciente tiene un nombre y una historia</h2>
               <p className="mt-4 text-sm leading-7 text-med-muted md:text-base">
-                Cada caso comienza con un prólogo breve. En el primer turno es lo que el jugador alcanzó a ver; desde el segundo, la llamada al 131 y la radio de la central. Los personajes hablan con voces distintas, y lo que ocurre en esa escena, una hora en el reloj, un objeto o el comentario equivocado de un testigo, vuelve a ser necesario durante la atención.
+                Antes de intervenir ves lo que pasó. En la feria, un hombre mayor se seca la frente, le dice a la casera que es el calor y se frota el pecho mientras paga. Medio minuto después está en el suelo. La hora del reloj, ese gesto y lo que grita un testigo los vas a necesitar.
               </p>
               <p className="mt-3 text-sm leading-7 text-med-muted md:text-base">
-                Al cierre, el epílogo muestra cómo siguió la historia. Si la atención no alcanzó, el paciente fallece y el médico de turno da la noticia a la familia. La revisión muestra después los pasos que faltaron y los errores críticos.
+                Al final, el epílogo cuenta cómo siguió. Si lo lograste, te enteras de que llegó al hospital con pulso. Si no, estás en el pasillo de urgencias cuando el médico sale a hablar con la familia.
               </p>
             </div>
             <div className="mt-10 grid gap-5 md:grid-cols-2">
-              <Shot src="/codigo-vital/prologo.webp" alt="Prólogo: un hombre mayor se frota el pecho mientras la casera le pregunta si se siente bien" caption="Prólogo: los signos de alarma aparecen antes del colapso y el jugador puede usarlos durante la atención." />
-              <Shot src="/codigo-vital/epilogo.webp" alt="Epílogo: el médico de urgencia habla con la familia en el pasillo de reanimación" caption="Epílogo de un caso no resuelto: el médico de urgencia habla con la familia." />
+              <Shot src="/codigo-vital/prologo.webp" alt="Prólogo: un hombre mayor se frota el pecho mientras la casera le pregunta si se siente bien" caption="El prólogo: las señales estaban ahí antes de que cayera." />
+              <Shot src="/codigo-vital/epilogo.webp" alt="Epílogo: el médico de urgencia habla con la familia en el pasillo de reanimación" caption="Cuando la atención no alcanzó." />
             </div>
           </div>
         </section>
 
         <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-20">
           <Eyebrow>Modalidades</Eyebrow>
-          <h2 className="max-w-3xl text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">Para jugar solo o para enseñar frente a un curso</h2>
+          <h2 className="max-w-3xl text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">Para jugar solo o para proyectar en la sala</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {MODES.map((mode) => (
               <article key={mode.name} className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-med-panel/70 p-5">
@@ -233,11 +236,11 @@ export function CodigoVitalPage() {
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
               <h3 className="text-base font-extrabold text-med-text">Guardia del día</h3>
-              <p className="mt-2 text-sm leading-7 text-med-soft/80">Un caso y una variante asignados por la fecha, los mismos para todos los jugadores durante ese día.</p>
+              <p className="mt-2 text-sm leading-7 text-med-soft/80">Un caso nuevo cada día, el mismo para todos. Sirve para comparar estrellas con tu compañía o con tu curso.</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-              <h3 className="text-base font-extrabold text-med-text">Variantes numeradas</h3>
-              <p className="mt-2 text-sm leading-7 text-med-soft/80">Cada partida cambia la edad, los hallazgos, el ritmo y los tiempos dentro de rangos definidos. Con el número de la variante, cualquier persona puede repetir exactamente el mismo caso.</p>
+              <h3 className="text-base font-extrabold text-med-text">Ningún caso sale igual</h3>
+              <p className="mt-2 text-sm leading-7 text-med-soft/80">En cada partida cambian la edad, los hallazgos, el ritmo y los tiempos. Si un caso te costó, puedes pedir revancha con la misma variante.</p>
             </div>
           </div>
         </section>
@@ -245,9 +248,9 @@ export function CodigoVitalPage() {
         <section className="border-y border-white/10 bg-med-bg2">
           <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-20">
             <Eyebrow>Contenido</Eyebrow>
-            <h2 className="max-w-3xl text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">Dieciséis casos en cuatro turnos</h2>
+            <h2 className="max-w-3xl text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">Dieciséis emergencias en cuatro turnos</h2>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-med-muted md:text-base">
-              Los temas que cubre cada turno. Dentro del juego el diagnóstico no se anuncia: el caso se presenta como lo vería un testigo o como lo informa la central.
+              Estos son los temas. Dentro del juego nadie los anuncia: cada caso empieza como lo vería un testigo o como lo informa la central.
             </p>
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
               {TOPICS.map((group) => (
@@ -270,28 +273,28 @@ export function CodigoVitalPage() {
         <section id="clases" className="mx-auto w-full max-w-7xl scroll-mt-20 px-5 py-16 md:px-8 md:py-20">
           <div className="grid gap-10 md:grid-cols-2">
             <div>
-              <Eyebrow>Uso en clases</Eyebrow>
-              <h2 className="text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">Una herramienta para el instructor</h2>
+              <Eyebrow>Para instructores</Eyebrow>
+              <h2 className="text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">Cómo usarlo en un curso</h2>
               <ul className="mt-6 space-y-4 text-sm leading-7 text-med-soft/85">
-                <li><strong className="text-med-text">Proyección:</strong> en modo clase el instructor controla el prólogo, puede pausarlo o volver a una escena, y conduce las preguntas con el curso antes de continuar.</li>
-                <li><strong className="text-med-text">Discusión con datos:</strong> la revisión final entrega la línea de tiempo completa del caso, los errores críticos y la referencia de cada punto, lo que sirve como base para el debriefing.</li>
-                <li><strong className="text-med-text">Grupos con casos distintos:</strong> cada grupo puede jugar una variante diferente, o todos la misma a partir de su número.</li>
-                <li><strong className="text-med-text">Práctica antes y después:</strong> como no requiere cuenta ni conexión, los alumnos pueden repasar en su celular fuera del horario de clases.</li>
+                <li><strong className="text-med-text">En el proyector:</strong> en modo clase controlas el prólogo, lo pausas o vuelves a una escena, y conduces las preguntas antes de seguir.</li>
+                <li><strong className="text-med-text">Debriefing con datos:</strong> la revisión trae la línea de tiempo completa del caso, los errores críticos y la referencia de cada punto.</li>
+                <li><strong className="text-med-text">Un caso distinto por grupo:</strong> cada partida sale con su propia variante, así que cada grupo resuelve su caso. Con la guardia del día, en cambio, todos juegan el mismo.</li>
+                <li><strong className="text-med-text">Práctica fuera de la sala:</strong> no pide cuenta ni conexión, así que tus alumnos pueden repasar en el celular antes o después de la clase.</li>
               </ul>
             </div>
             <div className="rounded-2xl border border-med-blue/25 bg-med-blue/[0.06] p-6">
               <h3 className="text-lg font-extrabold text-med-text">Código Vital y Monitor ACLS</h3>
               <p className="mt-3 text-sm leading-7 text-med-soft/85">
-                Monitor ACLS está pensado para que un instructor conduzca escenarios de reanimación con su equipo, con roles y registro de la sesión. Código Vital cubre otra necesidad: que cada persona practique por su cuenta la primera respuesta, desde el testigo que presencia un colapso hasta el jefe de una escena con múltiples víctimas.
+                Monitor ACLS sirve para que un instructor conduzca escenarios de reanimación con su equipo, con roles y registro de la sesión. Código Vital está pensado para la práctica individual de la primera respuesta, desde el testigo que ve caer a alguien hasta el jefe de una escena con múltiples víctimas.
               </p>
-              <p className="mt-3 text-sm leading-7 text-med-soft/85">El motor de ritmos cardíacos del juego es el mismo que usa Monitor ACLS.</p>
+              <p className="mt-3 text-sm leading-7 text-med-soft/85">Los ritmos cardíacos del juego salen del mismo motor que usa Monitor ACLS.</p>
             </div>
           </div>
         </section>
 
         <section className="border-y border-white/10 bg-med-bg2">
           <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-20">
-            <Eyebrow>Requisitos y características</Eyebrow>
+            <Eyebrow>Lo que necesitas</Eyebrow>
             <dl className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {TECH.map(([term, detail]) => (
                 <div key={term} className="rounded-2xl border border-white/10 bg-med-panel/70 p-5">
@@ -307,16 +310,16 @@ export function CodigoVitalPage() {
           <div className="rounded-2xl border border-med-gold/30 bg-med-gold/[0.06] p-6">
             <h2 className="text-sm font-extrabold uppercase tracking-[0.16em] text-med-gold">Sobre el contenido clínico</h2>
             <p className="mt-3 text-sm leading-7 text-med-soft/85">
-              Los casos se construyen a partir de las guías AHA 2025, ERC 2025 y PHTLS 10.ª edición, y se encuentran en revisión clínica por instructores. Algunos tiempos y umbrales son simplificaciones propias del juego y se identifican como tales en la revisión de cada caso.
+              Los casos se basan en las guías AHA 2025, ERC 2025 y PHTLS 10.ª edición y están en revisión clínica por instructores. Algunos tiempos y umbrales son simplificaciones propias del juego y se marcan como tales en la revisión de cada caso.
             </p>
             <p className="mt-3 text-sm leading-7 text-med-soft/85">
-              Código Vital es una herramienta de práctica. No reemplaza un curso certificado ni los protocolos de cada institución.
+              Código Vital sirve para practicar. No reemplaza un curso certificado ni los protocolos de tu institución.
             </p>
           </div>
 
           <div className="mt-12 text-center">
-            <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Gratuito y sin registro</h2>
-            <p className="mt-3 text-sm text-med-muted">Se abre en el navegador, en codigovital.monitoracls.com.</p>
+            <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">¿Llegarías a tiempo?</h2>
+            <p className="mt-3 text-sm text-med-muted">Gratis y sin registro, en codigovital.monitoracls.com.</p>
             <div className="mt-6 flex justify-center">
               <PlayButton source="page_footer" label="Jugar Código Vital" />
             </div>
