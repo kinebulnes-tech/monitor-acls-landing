@@ -6,6 +6,7 @@ export type CommercialEventName =
   | 'click_plans'
   | 'click_request_quote'
   | 'click_codigo_vital'
+  | 'click_peques'
 
 export type BillingCycle = 'monthly' | 'annual'
 

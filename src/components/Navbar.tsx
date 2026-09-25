@@ -33,6 +33,10 @@ export function Navbar() {
             <span className="h-1.5 w-1.5 rounded-full bg-med-red" aria-hidden="true" />
             Código Vital
           </Link>
+          <Link to="/peques" className="flex items-center gap-1.5 transition hover:text-white">
+            <span className="h-1.5 w-1.5 rounded-full bg-med-ecg" aria-hidden="true" />
+            Peques
+          </Link>
           <a
             href={simulatorHref}
             target={simulatorIsExternal ? '_blank' : undefined}
@@ -98,6 +102,13 @@ export function Navbar() {
               className="rounded-lg border border-med-red/35 bg-med-red/10 px-3 py-2 text-xs font-extrabold uppercase tracking-wider text-white"
             >
               Código Vital · juego gratuito
+            </Link>
+            <Link
+              to="/peques"
+              onClick={() => setOpen(false)}
+              className="rounded-lg border border-med-ecg/35 bg-med-ecg/10 px-3 py-2 text-xs font-extrabold uppercase tracking-wider text-white"
+            >
+              Peques · juego para niños
             </Link>
           </nav>
         </div>

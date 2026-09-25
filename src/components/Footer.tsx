@@ -15,6 +15,8 @@ export function Footer() {
               <a href="https://app.monitoracls.com" className="transition hover:text-white">app.monitoracls.com</a>
               <span aria-hidden="true">·</span>
               <Link to="/codigo-vital" className="transition hover:text-white">Código Vital</Link>
+              <span aria-hidden="true">·</span>
+              <Link to="/peques" className="transition hover:text-white">Código Vital Peques</Link>
             </div>
           </div>
 

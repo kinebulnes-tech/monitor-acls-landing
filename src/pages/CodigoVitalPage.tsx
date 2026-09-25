@@ -1,38 +1,7 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { trackCommercialEvent } from '../lib/commercial'
+import { Eyebrow, GameFooter, GameHeader, PlayButton, Shot, usePageTitle, type GameLink } from './gamePageParts'
 
-const GAME_URL = 'https://codigovital.monitoracls.com'
-
-function Shot({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
-  return (
-    <figure className="overflow-hidden rounded-2xl border border-white/10 bg-med-panel shadow-card">
-      <img src={src} alt={alt} width={1600} height={900} loading="lazy" decoding="async" className="block aspect-video w-full object-cover" />
-      {caption ? <figcaption className="border-t border-white/10 px-4 py-3 text-xs leading-relaxed text-med-muted">{caption}</figcaption> : null}
-    </figure>
-  )
-}
-
-function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.26em] text-med-cyan/80">{children}</p>
-}
-
-function PlayButton({ source, label = 'Jugar ahora' }: { source: string; label?: string }) {
-  return (
-    <a
-      href={GAME_URL}
-      target="_blank"
-      rel="noreferrer"
-      onClick={() => trackCommercialEvent('click_codigo_vital', { source })}
-      className="inline-flex items-center gap-2 rounded-xl border border-med-red/50 bg-med-red/20 px-5 py-3 text-sm font-extrabold uppercase tracking-wider text-white transition duration-300 hover:-translate-y-0.5 hover:bg-med-red/30"
-    >
-      {label}
-      <svg className="h-4 w-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-        <path d="M5 3l6 5-6 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </a>
-  )
-}
+const GAME: GameLink = { href: 'https://codigovital.monitoracls.com', event: 'click_codigo_vital', newTab: true }
 
 const MECHANICS = [
   {
@@ -68,7 +37,7 @@ const MODES = [
     name: 'Modo clase',
     image: '/codigo-vital/clase.webp',
     alt: 'Pregunta de alternativas del modo clase durante un paro presenciado',
-    text: 'Todos los casos abiertos y una pantalla pensada para el proyector. En los momentos clave el caso se detiene con una pregunta de alternativas para discutir con el curso, y después muestra la respuesta con su fundamento. El prólogo se puede pausar y retroceder, y termina con una pregunta para abrir la conversación.',
+    text: 'Todos los casos quedan abiertos y la pantalla se ve bien en el proyector. En los momentos clave el caso se detiene con una pregunta de alternativas para discutir con el curso, y después muestra la respuesta con su fundamento. El prólogo se puede pausar y retroceder, y termina con una pregunta para abrir la conversación.',
   },
 ]
 
@@ -101,40 +70,11 @@ const TECH = [
 ]
 
 export function CodigoVitalPage() {
-  useEffect(() => {
-    window.scrollTo(0, 0)
-    const previous = document.title
-    document.title = 'Código Vital · Juego gratuito de emergencias · Monitor ACLS'
-    return () => {
-      document.title = previous
-    }
-  }, [])
+  usePageTitle('Código Vital · Juego gratuito de emergencias · Monitor ACLS')
 
   return (
     <div className="min-h-screen bg-med-bg text-med-text">
-      <header className="sticky top-0 z-30 border-b border-white/10 bg-med-bg/90 backdrop-blur-md">
-        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-5 md:px-8">
-          <div className="flex items-center gap-3">
-            <Link to="/" className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-med-muted transition hover:text-med-soft">
-              <svg className="h-4 w-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              Monitor ACLS
-            </Link>
-            <span className="text-white/20">·</span>
-            <span className="text-xs font-semibold text-med-soft">Código Vital</span>
-          </div>
-          <a
-            href={GAME_URL}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => trackCommercialEvent('click_codigo_vital', { source: 'page_header' })}
-            className="rounded-lg border border-med-red/40 bg-med-red/15 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-white transition hover:bg-med-red/25"
-          >
-            Jugar
-          </a>
-        </div>
-      </header>
+      <GameHeader name="Código Vital" game={GAME} />
 
       <main>
         <section className="relative overflow-hidden border-b border-white/10 bg-clinical-radial">
@@ -156,7 +96,7 @@ export function CodigoVitalPage() {
                 Empiezas de franco, sin más equipo que tus manos, y terminas a cargo de una micro volcada con víctimas por todos lados. Sacar tres estrellas en los dieciséis casos no es fácil.
               </p>
               <div className="flex flex-wrap items-center gap-3">
-                <PlayButton source="page_hero" />
+                <PlayButton game={GAME} source="page_hero" />
                 <a href="#clases" className="rounded-xl border border-med-blue/40 bg-med-blue/10 px-5 py-3 text-sm font-extrabold uppercase tracking-wider text-med-cyan transition duration-300 hover:-translate-y-0.5 hover:bg-med-blue/20">
                   Para instructores
                 </a>
@@ -166,7 +106,7 @@ export function CodigoVitalPage() {
                   ['16', 'casos clínicos'],
                   ['4', 'turnos de carrera'],
                   ['Gratis', 'sin registro'],
-                  ['Offline', 'tras la primera carga'],
+                  ['Sin internet', 'después de la primera carga'],
                 ].map(([value, label]) => (
                   <li key={label} className="rounded-xl border border-white/10 bg-white/[0.03] px-3 py-3">
                     <b className="block text-xl font-extrabold text-med-text">{value}</b>
@@ -185,7 +125,7 @@ export function CodigoVitalPage() {
               <Eyebrow>Cómo se juega</Eyebrow>
               <h2 className="text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">Nadie te va a decir qué hacer</h2>
               <p className="mt-4 max-w-xl text-sm leading-7 text-med-muted md:text-base">
-                Tienes la escena, al paciente y un reloj que no se detiene. Los signos vitales los conoces evaluando, y cada minuto que pasa se nota en el paciente.
+                Los signos vitales los conoces evaluando, y cada minuto que pasa se nota en el paciente.
               </p>
               <div className="mt-8">
                 <Shot src="/codigo-vital/rcp.webp" alt="Caso en curso: reanimación en la feria con el panel de compresiones y el de acciones" caption="Minuto uno en la feria: compresiones en rango, la vecina salió a buscar el DEA y la ambulancia está a menos de cinco minutos." />
@@ -215,7 +155,7 @@ export function CodigoVitalPage() {
               </p>
             </div>
             <div className="mt-10 grid gap-5 md:grid-cols-2">
-              <Shot src="/codigo-vital/prologo.webp" alt="Prólogo: un hombre mayor se frota el pecho mientras la casera le pregunta si se siente bien" caption="El prólogo: las señales estaban ahí antes de que cayera." />
+              <Shot src="/codigo-vital/prologo.webp" alt="Prólogo: un hombre mayor se frota el pecho mientras la casera le pregunta si se siente bien" caption="Las señales aparecen antes de que caiga." />
               <Shot src="/codigo-vital/epilogo.webp" alt="Epílogo: el médico de urgencia habla con la familia en el pasillo de reanimación" caption="Cuando la atención no alcanzó." />
             </div>
           </div>
@@ -319,24 +259,14 @@ export function CodigoVitalPage() {
 
           <div className="mt-12 text-center">
             <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">¿Llegarías a tiempo?</h2>
-            <p className="mt-3 text-sm text-med-muted">Gratis y sin registro, en codigovital.monitoracls.com.</p>
             <div className="mt-6 flex justify-center">
-              <PlayButton source="page_footer" label="Jugar Código Vital" />
+              <PlayButton game={GAME} source="page_footer" label="Jugar Código Vital" />
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-white/8 bg-med-bg">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-5 py-8 text-xs text-white/50 md:flex-row md:items-center md:justify-between md:px-8">
-          <p>© {new Date().getFullYear()} Monitor ACLS · Código Vital</p>
-          <div className="flex flex-wrap gap-4">
-            <Link to="/" className="transition hover:text-white">monitoracls.com</Link>
-            <a href="mailto:contacto@monitoracls.com" className="transition hover:text-white">contacto@monitoracls.com</a>
-            <Link to="/privacidad" className="transition hover:text-white">Política de Privacidad</Link>
-          </div>
-        </div>
-      </footer>
+      <GameFooter name="Código Vital" />
     </div>
   )
 }
