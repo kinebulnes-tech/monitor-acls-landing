@@ -22,6 +22,7 @@ const PaymentFailure = lazy(() => import('./pages/PaymentFailure').then(m => ({ 
 const PaymentPending = lazy(() => import('./pages/PaymentPending').then(m => ({ default: m.PaymentPending })))
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })))
 const TermsPage = lazy(() => import('./pages/TermsPage').then(m => ({ default: m.TermsPage })))
+const CodigoVitalPage = lazy(() => import('./pages/CodigoVitalPage').then(m => ({ default: m.CodigoVitalPage })))
 
 function SectionFallback() {
   return <div className="min-h-[200px] bg-med-bg" aria-hidden="true" />
@@ -126,6 +127,14 @@ function App() {
           element={
             <Suspense fallback={<div className="min-h-screen bg-med-bg" />}>
               <TermsPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/codigo-vital"
+          element={
+            <Suspense fallback={<div className="min-h-screen bg-med-bg" />}>
+              <CodigoVitalPage />
             </Suspense>
           }
         />

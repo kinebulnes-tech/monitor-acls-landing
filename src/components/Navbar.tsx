@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { getSimulatorHref, isExternalHref, trackCommercialEvent } from '../lib/commercial'
 
 export function Navbar() {
@@ -28,6 +29,10 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
+          <Link to="/codigo-vital" className="flex items-center gap-1.5 transition hover:text-white">
+            <span className="h-1.5 w-1.5 rounded-full bg-med-red" aria-hidden="true" />
+            Código Vital
+          </Link>
           <a
             href={simulatorHref}
             target={simulatorIsExternal ? '_blank' : undefined}
@@ -87,6 +92,13 @@ export function Navbar() {
             >
               Agendar demo
             </a>
+            <Link
+              to="/codigo-vital"
+              onClick={() => setOpen(false)}
+              className="rounded-lg border border-med-red/35 bg-med-red/10 px-3 py-2 text-xs font-extrabold uppercase tracking-wider text-white"
+            >
+              Código Vital · juego gratuito
+            </Link>
           </nav>
         </div>
       ) : null}
