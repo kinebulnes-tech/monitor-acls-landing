@@ -7,33 +7,37 @@ const SHOT = { width: 1180, height: 820 }
 const LEARNS = [
   {
     title: 'Pedir ayuda y llamar',
-    text: 'Darse cuenta de que algo anda mal, avisar a un adulto y marcar el número correcto: 131 para la ambulancia, 132 para los bomberos y 133 para la policía. Desde los 6 años, además, qué decir: qué pasó y dónde están.',
+    text: 'Darse cuenta de que algo anda mal, avisar a un adulto y marcar el número correcto: 131 para la ambulancia, 132 para los bomberos y 133 para la policía (son los números de Chile; en otro país conviene contarles cuáles son los suyos). Desde los 6 años, además, qué decir: qué pasó y dónde están.',
   },
   {
     title: 'No ponerse en peligro',
-    text: 'Mirar antes de acercarse. Salir agachado si hay humo y no volver a entrar, no tocar un enchufe con chispas, esperar en la vereda y quedarse quieto si se pierde en un supermercado.',
+    text: 'Mirar antes de acercarse. Salir agachado si hay humo y no volver a entrar, no tocar un enchufe con chispas, agacharse, cubrirse y afirmarse si tiembla, cruzar la calle de la mano de un adulto y quedarse quieto si se pierde en un supermercado o en el cerro.',
   },
   {
     title: 'Primeros auxilios simples',
-    text: 'Agua fría de la llave sobre una quemadura (no hielo, no mantequilla), apretar una herida con un paño limpio y no mover a alguien que se cayó.',
+    text: 'Agua fría de la llave sobre una quemadura (no hielo, no mantequilla), apretar una herida con un paño limpio, sentarse con la cabeza hacia adelante si sangra la nariz y no mover a alguien que se cayó.',
   },
 ]
 
 const MISSIONS: [string, string][] = [
   ['El abuelo Oso no despierta', 'SAMU'],
   ['Osito se quemó con la tetera', 'SAMU'],
+  ['A Conejita le sangra la nariz', 'SAMU'],
   ['¡Hay humo en la casa!', 'Bombero'],
   ['El enchufe echa chispas', 'Bombero'],
+  ['¡Está temblando!', 'Bombero'],
   ['Conejita se perdió', 'Policía'],
   ['Zorrito se cayó de la bici', 'Policía'],
+  ['Osito quiere cruzar la calle', 'Policía'],
   ['Zorrito se cortó con una rama', 'Rescatista'],
   ['Una abeja picó a Conejita', 'Rescatista'],
+  ['Zorrito se perdió en el cerro', 'Rescatista'],
 ]
 
 const CALM = [
   ['Nadie muere y no hay sustos', 'Los pacientes son peluches y todas las misiones terminan bien. No hay imágenes fuertes ni escenas de hospital.'],
   ['Equivocarse no se castiga', 'Si elige algo que no ayuda, Pulsito le explica por qué y lo deja intentar de nuevo. Pedir ayuda nunca resta.'],
-  ['Sin datos, publicidad ni compras', 'No hay cuentas. La edad y los stickers se guardan solo en el dispositivo y nada se envía a un servidor.'],
+  ['Sin datos, publicidad ni compras', 'No hay cuentas ni nombres. Cada niño elige su peluche; su edad y sus stickers se guardan solo en el dispositivo y nada se envía a un servidor.'],
   ['Sesiones cortas', 'Después de tres misiones seguidas, el juego propone descansar y contarle a la familia lo que aprendió.'],
   ['El juego de adultos queda aparte', 'Desde Peques solo se llega a Código Vital para adultos con un botón que hay que mantener apretado 3 segundos.'],
   ['Funciona sin internet', 'Después de la primera visita se juega sin conexión, y se puede instalar como aplicación en el celular o la tablet.'],
@@ -48,6 +52,9 @@ const ACTIVITIES: [string, string][] = [
   ['Zorrito se cayó de la bici', 'Dibujar un casco y conversar dónde se espera cuando pasa algo en la calle: en la vereda.'],
   ['Zorrito se cortó', 'Practicar apretar con un paño limpio sobre un muñeco mientras el curso cuenta hasta ocho.'],
   ['Una abeja picó a Conejita', 'Conversar qué es una alergia y por qué la «lapicera» de los alérgicos la usa un adulto.'],
+  ['¡Está temblando!', 'Hacer un simulacro en la sala: agacharse, cubrirse y afirmarse, lejos de las ventanas, y salir en fila con el adulto.'],
+  ['Osito quiere cruzar la calle', 'Dibujar un paso de cebra con cinta en el suelo y cruzarlo de a dos, mirando a los dos lados.'],
+  ['Zorrito se perdió en el cerro', 'Jugar a quedarse quieto junto a un «árbol» (una silla) y contestar fuerte «¡aquí estoy!» cuando lo llaman.'],
 ]
 
 export function PequesPage() {
